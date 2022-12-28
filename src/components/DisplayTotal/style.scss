@@ -1,0 +1,33 @@
+@import '../../scss/global';
+
+.displaytotal {
+  width: 250px;
+  height: 90px;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .displaytotal-icon_up {
+    margin-right: 10px;
+    color: $green;
+    font-size: 30px;
+  }
+
+  .displaytotal-icon_down {
+    margin-right: 10px;
+    color: $red;
+    font-size: 30px;
+  }
+
+  .displaytotal-values {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+
+    &_lastvalue {
+      font-size: 15px;
+    }
+  }
+}

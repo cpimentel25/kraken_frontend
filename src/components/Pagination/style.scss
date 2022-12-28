@@ -1,0 +1,18 @@
+@import '../../scss/global';
+
+.pagination {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .pagination-button_left,
+  .pagination-button_right {
+    border: none;
+    background: none;
+    font-size: 22px;
+    color: $white;
+  }
+}

@@ -1,0 +1,105 @@
+@import '../../../scss/global';
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+
+  .modal-display {
+    width: 300px;
+    height: 400px;
+    background-color: $bg-secundary;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+    &_info {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      &-id, &-value, &-category {
+        display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+      }
+
+      .data-id, .data-value, .data-category {
+        margin-left: 10px;
+      }
+    }
+
+    &_date {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &-day, &-month, &-year {
+        margin: 0 10px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &_info, &_date, &_time, &_buttons {
+      margin: 0 20px;
+    }
+  }
+  .modal-display_buttons {
+    display: flex;
+    justify-content: space-between;
+
+    &-delete{
+      background-color: $red;
+      color: $white;
+    }
+
+    &-update {
+      background-color: $green;
+      color: $black;
+    }
+
+    &-close {
+      background-color: $button;
+      color: $white;
+    }
+
+    &-delete, &-update, &-close {
+      align-items: center;
+      background-clip: padding-box;
+      border: 1px solid transparent;
+      border-radius: .25rem;
+      box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 3.8rem;
+      min-height: 2.2rem;
+      text-transform: uppercase;
+    }
+  }
+}
+

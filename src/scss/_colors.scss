@@ -1,0 +1,28 @@
+//Primary colors
+$white: white;
+$black: black;
+$green: rgb(27, 214, 27);
+$blue: rgb(53, 53, 255);
+$red: rgb(252, 15, 15);
+$button: #ff6a06;
+$button-hover: #d45500;
+$button-disable: #f7eae17e;
+
+//buttons gradietns
+$button-gradient-primary: linear-gradient(
+  135deg,
+  rgba(255, 166, 46, 1) 0%,
+  rgba(234, 77, 44, 1) 100%
+);
+
+//backgournd colors
+$bg-primary: rgb(31, 31, 31);
+$bg-secundary: rgb(48, 48, 48);
+$bg-list: rgb(228, 228, 228);
+
+//background gradients
+$bg-gradient-blue: linear-gradient(
+  135deg,
+  rgba(52, 153, 255, 1) 0%,
+  rgba(58, 57, 133, 1) 100%
+);

@@ -1,0 +1,37 @@
+@import '../../scss/global';
+
+.navbar {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 20px;
+
+  .navbar-icons {
+    height: 50px;
+    background-color: $bg-secundary;
+    border-radius: 7px 7px 0 0;
+    display: flex;
+
+    .navbar-icons_slect {
+      width: 350px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-content: center;
+
+      &_link {
+        color: $white;
+      }
+
+      &_link:hover,
+      &_link:focus {
+        color: $button !important;
+      }
+    }
+  }
+}

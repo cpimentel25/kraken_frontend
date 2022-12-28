@@ -1,0 +1,106 @@
+@import '../../scss/global';
+
+.entervalue {
+  margin: 20px 0 40px 0;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: none;
+  }
+
+  .entervalue-input {
+    width: 250px;
+
+    .entervalue-input-newValue_newvalue {
+      padding-right: 7px;
+      height: 40px;
+      border: none;
+      border-radius: 4px;
+      font-size: 20px;
+      outline: 0;
+      text-align: right;
+    }
+
+    .entervalue-input-category {
+      margin: 7px 0;
+
+      &_options {
+        width: 250px;
+        height: 33px;
+        border: none;
+        outline: 0;
+        border-radius: 4px;
+        background-color: $bg-secundary;
+        color: $white;
+
+        &_selection {
+          background-color: wheat;
+        }
+      }
+    }
+  }
+
+  .entervalue-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &_send, &_return {
+      align-items: center;
+      background-clip: padding-box;
+      background-color: $button;
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 14px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1.25;
+      min-height: 2rem;
+      padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 120px;
+    }
+
+    &_return {
+      background-color: $blue;
+    }
+
+    &_return:disabled,
+    &_send:disabled {
+      background-color: $button-disable;
+    }
+
+    .entervalue-button_send:disabled:hover {
+      background-color: $button-disable;
+    }
+
+    .entervalue-button_send:hover,
+    .entervalue-button_send:focus {
+      background-color: #fb8332;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    }
+
+    .entervalue-button_send:active {
+      background-color: #c85000;
+      box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+      transform: translateY(0);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../scss/global';
+
+.authPage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: $bg-gradient-blue;
+}

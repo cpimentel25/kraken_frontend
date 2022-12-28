@@ -1,0 +1,21 @@
+@import '../../scss/global';
+
+.displaytotalhistory {
+  width: 250px;
+  height: 90px;
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .displaytotalhistory-values {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+
+    &_lastvalue {
+      font-size: 15px;
+    }
+  }
+}

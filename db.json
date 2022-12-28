@@ -1,0 +1,679 @@
+{
+  "values": [
+    {
+      "id": 1,
+      "value": "99.2",
+      "date": {
+        "day": 23,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 20,
+          "minute": 35
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 2,
+      "value": "120",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 9,
+          "minute": 49
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 3,
+      "value": "120.99",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 9,
+          "minute": 49
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 4,
+      "value": "9.87",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 9,
+          "minute": 58
+        }
+      },
+      "category": "Taxes",
+      "user": ""
+    },
+    {
+      "id": 5,
+      "value": "540.22",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Salary",
+      "user": ""
+    },
+    {
+      "id": 6,
+      "value": "7499.99",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Salary",
+      "user": ""
+    },
+    {
+      "id": 7,
+      "value": 17.8,
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Taxes",
+      "user": ""
+    },
+    {
+      "id": 8,
+      "value": "99.99",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Services",
+      "user": ""
+    },
+    {
+      "id": 9,
+      "value": "99.99",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 10,
+      "value": "900.12",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Rent",
+      "user": ""
+    },
+    {
+      "id": 11,
+      "value": "900.12",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 1
+        }
+      },
+      "category": "Rent",
+      "user": ""
+    },
+    {
+      "id": 12,
+      "value": "134.12",
+      "date": {
+        "day": 24,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 9
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 13,
+      "value": "560.87",
+      "date": {
+        "day": 25,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 48
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 14,
+      "value": "133",
+      "date": {
+        "day": 25,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 51
+        }
+      },
+      "category": "Services",
+      "user": ""
+    },
+    {
+      "id": 15,
+      "value": "405.43",
+      "date": {
+        "day": 25,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 53
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 16,
+      "value": "233",
+      "date": {
+        "day": 25,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 55
+        }
+      },
+      "category": "Salary",
+      "user": ""
+    },
+    {
+      "id": 17,
+      "value": "356.99",
+      "date": {
+        "day": 25,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 57
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 18,
+      "value": "-56.12",
+      "date": {
+        "day": 26,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 16,
+          "minute": 23
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 19,
+      "value": "-900.99",
+      "date": {
+        "day": 26,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 16,
+          "minute": 23
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 20,
+      "value": "230.98",
+      "date": {
+        "day": 26,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 18,
+          "minute": 59
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 21,
+      "value": "-17.89",
+      "date": {
+        "day": 26,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 22,
+          "minute": 52
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 22,
+      "value": "1200.99",
+      "date": {
+        "day": 26,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 23,
+          "minute": 13
+        }
+      },
+      "category": "Salary",
+      "user": ""
+    },
+    {
+      "id": 23,
+      "value": "500.24",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 32
+        }
+      },
+      "category": "Rent",
+      "user": ""
+    },
+    {
+      "id": 24,
+      "value": "99.99",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 16,
+          "minute": 41
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 25,
+      "value": "325.99",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 22
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 26,
+      "value": "-13.44",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 28
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 27,
+      "value": "25.00",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 28
+        }
+      },
+      "category": "Services",
+      "user": ""
+    },
+    {
+      "id": 28,
+      "value": "90.99",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 29
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 29,
+      "value": "55.23",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 39
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 30,
+      "value": "325.99",
+      "date": {
+        "day": 28,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 19,
+          "minute": 49
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 31,
+      "value": "-70.23",
+      "date": {
+        "day": 29,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 36
+        }
+      },
+      "category": "Services",
+      "user": ""
+    },
+    {
+      "id": 32,
+      "value": "435.89",
+      "date": {
+        "day": 29,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 13,
+          "minute": 49
+        }
+      },
+      "category": "unexpected",
+      "user": ""
+    },
+    {
+      "id": 33,
+      "value": "20.12",
+      "date": {
+        "day": 29,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 18,
+          "minute": 41
+        }
+      },
+      "category": "Other income",
+      "user": ""
+    },
+    {
+      "id": 34,
+      "value": "12.33",
+      "date": {
+        "day": 30,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 23
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "id": 35,
+      "value": "-34.22",
+      "date": {
+        "day": 30,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 27
+        }
+      },
+      "category": "Without category",
+      "user": ""
+    },
+    {
+      "value": "45.22",
+      "category": "Rent",
+      "date": {
+        "day": 30,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 10,
+          "minute": 49
+        },
+        "user": ""
+      },
+      "id": 36
+    },
+    {
+      "value": "-90.77",
+      "category": "Services",
+      "date": {
+        "day": 30,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 11,
+          "minute": 16
+        },
+        "user": ""
+      },
+      "id": 37
+    },
+    {
+      "value": "144.89",
+      "category": "Other income",
+      "date": {
+        "day": 30,
+        "month": 10,
+        "year": 2022,
+        "time": {
+          "hour": 11,
+          "minute": 39
+        },
+        "user": ""
+      },
+      "id": 38
+    },
+    {
+      "value": "75.88",
+      "category": "Other income",
+      "date": {
+        "day": 6,
+        "month": 11,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 38
+        },
+        "user": ""
+      },
+      "id": 39
+    },
+    {
+      "value": "87.99",
+      "category": "Other income",
+      "date": {
+        "day": 8,
+        "month": 11,
+        "year": 2022,
+        "time": {
+          "hour": 18,
+          "minute": 2
+        },
+        "user": ""
+      },
+      "id": 40
+    },
+    {
+      "value": "24.89",
+      "category": "Taxes",
+      "date": {
+        "day": 9,
+        "month": 11,
+        "year": 2022,
+        "time": {
+          "hour": 9,
+          "minute": 11
+        },
+        "user": ""
+      },
+      "id": 41
+    },
+    {
+      "value": "-12.34",
+      "category": "Taxes",
+      "date": {
+        "day": 12,
+        "month": 11,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 40
+        },
+        "user": ""
+      },
+      "id": 42
+    },
+    {
+      "value": "87.99",
+      "category": "Without category",
+      "date": {
+        "day": 12,
+        "month": 11,
+        "year": 2022,
+        "time": {
+          "hour": 14,
+          "minute": 40
+        },
+        "user": ""
+      },
+      "id": 43
+    },
+    {
+      "value": "331.89",
+      "category": "Other income",
+      "date": {
+        "day": 12,
+        "month": "12",
+        "year": 2022,
+        "time": {
+          "hour": 15,
+          "minute": 38
+        },
+        "user": ""
+      },
+      "id": 44
+    },
+    {
+      "value": "455.99",
+      "category": "Salary",
+      "date": {
+        "day": 13,
+        "month": "12",
+        "year": 2022,
+        "time": {
+          "hour": 20,
+          "minute": 36
+        },
+        "user": ""
+      },
+      "id": 45
+    }
+  ]
+}

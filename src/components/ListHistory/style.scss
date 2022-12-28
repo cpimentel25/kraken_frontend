@@ -1,0 +1,79 @@
+@import '../../scss/global';
+
+.elementlist {
+  list-style-type: none;
+  width: 320px;
+  height: 625px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .elementlist-list {
+    width: 100%;
+    height: 36px;
+    border-radius: 4px;
+    background-color: $bg-secundary;
+    text-align: left;
+    margin: 2px 0;
+
+    .elementlist-list-each {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+
+      &_value {
+        margin-left: 2%;
+        width: 35%;
+      }
+
+      &_category {
+        width: 45%;
+      }
+
+      &_date {
+        width: 16%;
+        text-align: end;
+        margin-right: 2%;
+      }
+    }
+  }
+}
+
+// .pagination {
+//   height: 40px;
+//   list-style-type: none;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: nowrap;
+//   justify-content: space-between;
+//   align-items: center;
+//   align-content: center;
+//   padding: 5px;
+//   margin: 0 5px;
+
+//   .page-num {
+//     padding: 2px 10px;
+//     border-radius: 3px;
+//     margin: 0 3px;
+//   }
+
+//   .page-num:hover {
+//     background-color: $button;
+//     padding: 2px 10px;
+//     border-radius: 3px;
+//   }
+
+//   .active {
+//     background-color: $button;
+//   }
+
+//   .next, .previous {
+//     font-size: 20px;
+//   }
+// }
+
+
