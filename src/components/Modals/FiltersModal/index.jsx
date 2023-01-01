@@ -4,7 +4,7 @@ import { setCategoryFilters } from '../../../features/api/callSlice';
 import './styles.scss';
 
 const FilterModal = () => {
-  const listCategory = useSelector((state) => state.financeData.category);
+  const listCategory = useSelector((state) => state.financeData.categorie);
   const [filters, setFilters] = useState(listCategory);
 
   const dispatch = useDispatch();
@@ -29,8 +29,8 @@ const FilterModal = () => {
   return (
     <div className='filters'>
       <form className='filters-category'>
-        {listCategory.length
-          ? listCategory.map((value, index) => (
+        {listCategory?.length
+          ? listCategory?.map((value, index) => (
               <li key={index} className='filters-category_list'>
                 <div className='filters-category_wrap'>
                   <input

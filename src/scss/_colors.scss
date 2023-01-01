@@ -7,12 +7,19 @@ $red: rgb(252, 15, 15);
 $button: #ff6a06;
 $button-hover: #d45500;
 $button-disable: #f7eae17e;
+$aqua: rgba(52, 153, 255, 1);
+$grey: rgb(80, 80, 80);
 
-//buttons gradietns
+//gradietns
 $button-gradient-primary: linear-gradient(
   135deg,
   rgba(255, 166, 46, 1) 0%,
   rgba(234, 77, 44, 1) 100%
+);
+$gradient-red: linear-gradient(
+  135deg,
+  rgba(226, 28, 52, 1) 0%,
+  rgba(80, 11, 40, 1) 100%
 );
 
 //backgournd colors

@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchValue } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import History from './pages/History';
@@ -13,27 +12,26 @@ import AuthPage from './pages/Auth';
 import './App.scss';
 
 function App() {
-  const dispatch = useDispatch();
-  const dispatchData = () => {
-    dispatch(fetchValue());
-  };
+  const [tokenLive, setTokenLive] = useState(false);
 
-  const tokenIsLive = useSelector((state) => state.financeData.user.token);
   const userIsLive = useSelector((state) => state.financeData.user);
+  const token = localStorage.getItem('token');
 
   useEffect(
     () => {
-      dispatchData();
-      localStorage.setItem('token', tokenIsLive)
+      if (token === 'undefined' || token === null) {
+        return setTokenLive(false)
+      }
+
+      return setTokenLive(true);
     },
     // eslint-disable-next-line
     [userIsLive]
   );
 
-
   return (
     <div className='App'>
-        {(!tokenIsLive) ? (
+        {(!tokenLive) ? (
           <Routes>
           <Route path='/' element={<AuthPage />} />
           </Routes>
@@ -46,7 +44,7 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           </Routes>
         )}
-      {!tokenIsLive ? null : (<NavBar />)}
+      {!tokenLive === true ? null : (<NavBar />)}
     </div>
   );
 }

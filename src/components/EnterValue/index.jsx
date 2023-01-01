@@ -16,12 +16,7 @@ const EnterValue = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-
     const dataToSend = Object.assign(data, source);
-
-    // const dataToSend = {
-    //   ...data,
-    // };
 
     dispatch(postValue(dataToSend));
     event.target.reset();

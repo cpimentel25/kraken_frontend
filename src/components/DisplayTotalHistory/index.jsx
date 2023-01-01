@@ -11,7 +11,7 @@ const DisplayTotalHistory = (props) => {
 
 
   return (
-    <div key={data.user} className='displaytotalhistory'>
+    <div key={data} className='displaytotalhistory'>
       <div className='displaytotalhistory-values'>
         <h3 className='displaytotalhistory-values_newtotal'>{newTotalValue}</h3>
       </div>

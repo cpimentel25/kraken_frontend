@@ -1,3 +1,5 @@
+@import '../../scss/colors';
+
 .home {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,20 @@
   align-items: center;
   justify-content: center;
   height: 90vh;
+
+  &-display {
+    margin: 15px 0;
+    background-color: $bg-secundary;
+    width: 320px;
+    min-height: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 }
 
 // .home-header {

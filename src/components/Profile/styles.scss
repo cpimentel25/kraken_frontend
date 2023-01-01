@@ -1,0 +1,148 @@
+@import '../../scss/colors';
+
+.profile-component {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  &_topMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    &_setting,
+    &_notification {
+      top: 70%;
+      left: 77%;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .shape-icon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &_sectionID {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_img {
+      background: $bg-secundary;
+      display: inline-block;
+      min-width: 100px;
+      min-height: 100px;
+      border-radius: 50%;
+      margin: 30px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      &_button {
+        position: relative;
+        top: 70%;
+        left: 77%;
+        width: 20px;
+        height: 20px;
+        background: $aqua;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .shape-icon {
+          font-size: 16px;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &_hr {
+    display: block;
+    width: 200px;
+    margin: 20px 0;
+  }
+
+  &_sectionInfo {
+    &_01 {
+      width: 280px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+
+      &_shape {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: $bg-secundary;
+        border-radius: 20%;
+        color: white;
+        text-align: center;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        .shape-icon {
+          font-size: 22px;
+        }
+      }
+
+      &_info {
+        display: flex;
+        flex-direction: column;
+
+        &_description {
+          color: $grey;
+        }
+      }
+    }
+  }
+
+  &-button {
+    width: 280px;
+    margin: 40px 10px;
+
+    &_logOut {
+      align-items: center;
+      background-clip: padding-box;
+      background-color: $aqua;
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      color: $white;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 14px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1.25;
+      min-height: 2rem;
+      padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 100%;
+    }
+  }
+}

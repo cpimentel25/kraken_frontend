@@ -3,7 +3,7 @@
 .elementlist {
   list-style-type: none;
   width: 320px;
-  height: 625px;
+  height: 450px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
@@ -12,11 +12,12 @@
 
   .elementlist-list {
     width: 100%;
-    height: 36px;
+    height: 70px;
     border-radius: 4px;
     background-color: $bg-secundary;
     text-align: left;
-    margin: 2px 0;
+    margin: 7px 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     .elementlist-list-each {
       height: 100%;
@@ -25,55 +26,31 @@
       justify-content: space-around;
       align-items: center;
 
-      &_value {
+      &_input {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+      }
+
+      &_input_value {
         margin-left: 2%;
         width: 35%;
+        font-size: 17px;
       }
 
-      &_category {
-        width: 45%;
+      &_info {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      &_date {
-        width: 16%;
-        text-align: end;
-        margin-right: 2%;
-      }
+      // &_info_category {
+      // }
+
+      // &_info_date {
+      // }
     }
   }
 }
-
-// .pagination {
-//   height: 40px;
-//   list-style-type: none;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: nowrap;
-//   justify-content: space-between;
-//   align-items: center;
-//   align-content: center;
-//   padding: 5px;
-//   margin: 0 5px;
-
-//   .page-num {
-//     padding: 2px 10px;
-//     border-radius: 3px;
-//     margin: 0 3px;
-//   }
-
-//   .page-num:hover {
-//     background-color: $button;
-//     padding: 2px 10px;
-//     border-radius: 3px;
-//   }
-
-//   .active {
-//     background-color: $button;
-//   }
-
-//   .next, .previous {
-//     font-size: 20px;
-//   }
-// }
-
-

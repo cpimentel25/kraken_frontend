@@ -9,4 +9,23 @@
   justify-content: center;
   height: 100vh;
   background: $bg-gradient-blue;
+
+  &-selector {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    &_button {
+      margin-top: 40px;
+      width: 200px;
+      background: $white;
+      color: #080710;
+      border: none;
+      padding: 15px 0;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    }
+  }
 }

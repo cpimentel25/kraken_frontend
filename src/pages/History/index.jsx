@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import Pagination from '../../components/Pagination';
 import DisplayTotalHistory from '../../components/DisplayTotalHistory';
 import FilterModal from '../../components/Modals/FiltersModal';
+
 import './style.scss';
 
 const History = () => {
@@ -72,7 +73,7 @@ const History = () => {
                   (page - 1) * totalPage + totalPage
                 )
                 .map((values) => (
-                  <li name='listData' key={values.id} className='history-list'>
+                  <li name='listData' key={values._id} className='history-list'>
                     <div className='history-list-each'>
                       <div
                         name='displaylastValue'

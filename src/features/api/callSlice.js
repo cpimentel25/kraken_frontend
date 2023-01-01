@@ -4,6 +4,8 @@ import { FetchData, createNewUser, createNewValue, deleteValue, loginUser } from
 const initialState = {
   data: [],
   user: createInitialState(),
+  guest: initialStateGuest(),
+  currency: 'USD',
   status: 'idle',
   currentSelect: null,
   categorie: [
@@ -19,9 +21,27 @@ const initialState = {
 };
 
 function createInitialState() {
+  const user = localStorage.getItem('user');
+
+  if (user === 'undefined') {
+    return null;
+  }
   return {
       // initialize state from local storage to enable user to stay logged in
-      profile: JSON.parse(localStorage.getItem('user')),
+      profile: JSON.parse(user),
+      error: null,
+  };
+};
+
+function initialStateGuest() {
+  const guest = localStorage.getItem('guest');
+
+  if (guest === 'undefined') {
+    return null;
+  }
+  return {
+      // initialize state from local storage to enable user to stay logged in
+      profile: JSON.parse(guest),
       error: null,
   };
 };
@@ -67,6 +87,9 @@ export const valueSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // .addCase(fetchValue.pending, (state) => {
+      //   state.status = 'loading';
+      // })
       .addCase(fetchValue.fulfilled, (state, action) => {
         state.data = action.payload;
       })
