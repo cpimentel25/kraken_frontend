@@ -4,6 +4,7 @@ import {
   faBell,
   faCalendarDays,
   faEnvelope,
+  faFeatherPointed,
   faGear,
   faPlus,
   faUser,
@@ -98,7 +99,9 @@ const ProfileComponent = () => {
           </div>
         </div>
         <div className='profile-component_sectionInfo_01'>
-          <div className='profile-component_sectionInfo_01_shape'></div>
+          <div className='profile-component_sectionInfo_01_shape'>
+            <FontAwesomeIcon className='shape-icon' icon={faFeatherPointed} />
+          </div>
           <div className='profile-component_sectionInfo_01_info'>
             <p className='profile-component_sectionInfo_01_info_email'>
               {userData.role}

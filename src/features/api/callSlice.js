@@ -15,7 +15,6 @@ const initialState = {
     'Rent',
     'Services',
     'Taxes',
-    'unexpected',
   ],
   categoryFilter: null,
 };

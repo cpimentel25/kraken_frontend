@@ -1,9 +1,13 @@
+import ChartLiner from '../../components/Chart/Liner';
+import ChartRadar from '../../components/Chart/Radar';
+
 import './styles.scss';
 
 const Charts = () => {
   return (
     <div className='charts'>
-      <h3>Charts</h3>
+      <ChartLiner />
+      <ChartRadar />
     </div>
   );
 };

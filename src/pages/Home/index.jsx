@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchValue } from '../../features/api/callSlice';
+// import { useEffect } from 'react';
+// import { useDispatch } from 'react-redux';
+// import { fetchValue } from '../../features/api/callSlice';
 import EnterValue from '../../components/EnterValue';
 import ListHistory from '../../components/ListHistory';
 import DisplayTotal from '../../components/DisplayTotal';
@@ -8,19 +8,19 @@ import DisplayTotal from '../../components/DisplayTotal';
 import './styles.scss';
 
 const Home = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const dispatchData = () => {
-    dispatch(fetchValue());
-  };
+  // const dispatchData = () => {
+  //   dispatch(fetchValue());
+  // };
 
-  useEffect(
-    () => {
-      dispatchData();
-    },
-    // eslint-disable-next-line
-    []
-  );
+  // useEffect(
+  //   () => {
+  //     dispatchData();
+  //   },
+  //   // eslint-disable-next-line
+  //   []
+  // );
 
   return (
     <div className='home'>

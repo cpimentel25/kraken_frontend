@@ -1,4 +1,4 @@
-@import '../../scss/global';
+@import '../../scss/colors';
 
 .entervalue {
   margin: 0;
@@ -49,7 +49,7 @@
     &_send {
       align-items: center;
       background-clip: padding-box;
-      background-color: $button;
+      background-color: $aqua;
       border: none;
       border-radius: 0.25rem;
       box-sizing: border-box;
@@ -87,12 +87,12 @@
 
     .entervalue-button_send:hover,
     .entervalue-button_send:focus {
-      background-color: #fb8332;
+      background-color: rgb(44, 141, 238);
       box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     }
 
     .entervalue-button_send:active {
-      background-color: #c85000;
+      background-color: $aqua-dark;
       box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
       transform: translateY(0);
     }

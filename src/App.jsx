@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { fetchValue } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import History from './pages/History';
@@ -13,9 +14,14 @@ import './App.scss';
 
 function App() {
   const [tokenLive, setTokenLive] = useState(false);
+  const dispatch = useDispatch();
 
   const userIsLive = useSelector((state) => state.financeData.user);
   const token = localStorage.getItem('token');
+
+  const dispatchData = () => {
+    dispatch(fetchValue());
+  };
 
   useEffect(
     () => {
@@ -23,7 +29,8 @@ function App() {
         return setTokenLive(false)
       }
 
-      return setTokenLive(true);
+      setTokenLive(true);
+      return dispatchData();
     },
     // eslint-disable-next-line
     [userIsLive]
