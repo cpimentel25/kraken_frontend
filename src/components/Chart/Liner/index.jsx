@@ -5,26 +5,14 @@ import './styles.scss';
 
 const ChartLiner = () => {
   const userData = useSelector((state) => state.financeData.data);
-  // console.log(userData);
-
   const data = userData.map(data => ({name: 'A', uv: data.value[0]}));
-  // console.log(data)
-
-  // const dataTest = [
-  //   { name: 'A', uv: 400, pv: 240, amt: 2400 },
-  //   { name: 'B', uv: 200, pv: 300, amt: 2000 },
-  //   { name: 'C', uv: 0, pv: 100, amt: 1000 },
-  //   { name: 'D', uv: 100, pv: 300, amt: 200 },
-  //   { name: 'E', uv: 300, pv: 300, amt: 2200 },
-  //   { name: 'F', uv: 600, pv: 100, amt: 1200 },
-  // ];
 
   return (
     <div className='chart'>
       <div className='chart-graph'>
         <LineChart
           width={320}
-          height={300}
+          height={260}
           data={data}
           margin={{ top: 5, right: 5, bottom: 5, left: 0 }}
         >

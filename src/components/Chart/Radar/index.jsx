@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { DataFilter } from '../../../features/setDataFilter';
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -13,37 +13,11 @@ import './styles.scss';
 const ChartRadar = () => {
   const [dataRadar, setDataRadar] = useState([]);
 
-  const userData = useSelector((state) => state.financeData.data);
-  const categorie = useSelector((state) => state.financeData.categorie);
+  const eventFilter = DataFilter();
 
-  const data = userData.map((userData) => ({
-    categorie: userData.categorie,
-    value: userData.value[0],
-  }));
-
-  useEffect(
-    () => {
-      dataFilter();
-    },
-    // eslint-disable-next-line
-    [userData]
-  );
-
-  function dataFilter() {
-    const newAray = [];
-
-    categorie.forEach((element) => {
-      const value = Math.abs(data
-        .filter((data) => data.categorie === element)
-        .reduce((acc, value) => acc + value.value, 0));
-      newAray.push({ categorie: element, value });
-    });
-
-    // console.log('dataFilter: ', newAray);
-    return setDataRadar(newAray);
-  }
-
-  // console.log('data Show: ', dataRadar);
+  useEffect(() => {
+    setDataRadar(eventFilter);
+  }, [eventFilter]);
 
   return (
     <div className='radarchart'>

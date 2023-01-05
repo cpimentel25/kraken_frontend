@@ -17,6 +17,10 @@
     justify-content: space-between;
     margin-bottom: 20px;
 
+    &_setting {
+      cursor: pointer;
+    }
+
     &_setting,
     &_notification {
       top: 70%;

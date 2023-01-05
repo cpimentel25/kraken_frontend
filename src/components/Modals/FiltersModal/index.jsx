@@ -46,12 +46,20 @@ const FilterModal = () => {
               </li>
             ))
           : null}
-        <input
-          className='filters-category_btn'
-          type='submit'
-          value='Apply'
-          onClick={handleSubmit}
-        />
+        <div className='filters-category_buttons'>
+          <input
+            className='filters-category_btn'
+            type='submit'
+            value='Apply'
+            onClick={handleSubmit}
+          />
+          <input
+            className='filters-category_btn'
+            type='submit'
+            value='Reset'
+            // onClick={handleSubmit}
+          />
+        </div>
       </form>
     </div>
   );

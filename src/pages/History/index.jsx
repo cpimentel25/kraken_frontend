@@ -14,7 +14,6 @@ const History = () => {
   const totalPage = 10;
 
   const filterCategory = useSelector((state) => state.financeData.categoryFilter);
-  // console.log("filters: ", filterCategory);
 
   const data = useSelector((state) => state.financeData.data);
   const [newData, setNewData] = useState(data);
@@ -41,7 +40,7 @@ const History = () => {
   const newDataFilter = (value) => {
     if (filterCategory !== null) {
       // return filterCategory.includes(value.category);
-      setNewData(data.filter((value) => filterCategory.includes(value.category)));
+      setNewData(data.filter((value) => filterCategory.includes(value.categorie)));
     }
     return newData;
   };

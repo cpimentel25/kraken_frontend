@@ -1,7 +1,44 @@
+@import '../../scss/colors';
+
 .charts {
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
   justify-content: center;
+
+  &-button {
+    width: 350px;
+    display: flex;
+
+    &_bar,
+    &_radar,
+    &_line {
+      margin: 0 5px;
+      align-items: center;
+      background-clip: padding-box;
+      background-color: $aqua;
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      color: $white;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 14px;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1.25;
+      min-height: 2rem;
+      padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 100%;
+    }
+  }
 }

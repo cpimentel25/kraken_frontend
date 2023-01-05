@@ -5,8 +5,8 @@ import {
   faCalendarDays,
   faEnvelope,
   faFeatherPointed,
-  faGear,
   faPlus,
+  faRightFromBracket,
   faUser,
   faWallet,
 } from '@fortawesome/free-solid-svg-icons';
@@ -39,8 +39,11 @@ const ProfileComponent = () => {
   return (
     <div className='profile-component'>
       <div className='profile-component_topMenu'>
-        <div className='profile-component_topMenu_setting'>
-          <FontAwesomeIcon className='shape-icon' icon={faGear} />
+        <div
+          className='profile-component_topMenu_setting'
+          onClick={handleDeleteCredentials}
+        >
+          <FontAwesomeIcon className='shape-icon' icon={faRightFromBracket} />
         </div>
         <h3 className='profile-component_topMenu_title'>Profile</h3>
         <div className='profile-component_topMenu_notification'>
@@ -130,9 +133,8 @@ const ProfileComponent = () => {
           className='profile-component-button_logOut'
           type='submit'
           value='submit'
-          onClick={handleDeleteCredentials}
         >
-          Log Out
+          Send Invitation
         </button>
       </div>
     </div>
