@@ -1,13 +1,12 @@
 const API = process.env.REACT_APP_BACKEND;
-const token = localStorage.getItem('token');
-const createdBy = localStorage.getItem('id');
 
 export async function FetchData() {
+  const token = localStorage.getItem('token');
+
   const payload = {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`,
-      'createdBy': createdBy,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(),
@@ -22,8 +21,30 @@ export async function FetchData() {
   }
 };
 
+export async function FetchCategorie() {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/categorie`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export async function createNewValue(newvalue) {
+  const token = localStorage.getItem('token');
+
   const payload = {
     method: 'POST',
     headers: {

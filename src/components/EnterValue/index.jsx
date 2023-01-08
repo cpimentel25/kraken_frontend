@@ -44,7 +44,7 @@ const EnterValue = () => {
               id='categorie'
               // value={newvalue.categorie}
             >
-              {listOptions.map((categorie) => (
+              {listOptions?.map((categorie) => (
                 <option
                   className='entervalue-input-categorie_options_selection'
                   key={categorie}

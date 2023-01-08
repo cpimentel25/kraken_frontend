@@ -24,7 +24,7 @@ export function DataFilter() {
       value: userData.value[0],
     }));
 
-    categorie.forEach((element) => {
+    categorie?.forEach((element) => {
       const value = Math.abs(
         data
           .filter((data) => data.categorie === element)

@@ -1,0 +1,108 @@
+@import '../../scss/colors';
+
+.formstart {
+  width: 320px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  background: $bg-secundary;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  text-align: left;
+
+  &-options {
+    margin: 30px 10px;
+  }
+
+  &-group {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    &_input {
+      color: white;
+      display: block;
+      height: 35px;
+      border: none;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      padding: 0 10px;
+      font-size: 15px;
+      margin: 5px;
+    }
+
+    &-button_remove {
+      margin: 0 5px;
+      background-clip: padding-box;
+      background-color: rgb(52, 153, 255);
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      min-height: 2rem;
+      padding: calc(0.53rem - -1px) calc(1.1rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 100%;
+    }
+  }
+
+  &-button {
+    display: flex;
+
+    &_add,
+    &_submit {
+      width: 100px;
+      min-height: 3rem;
+      margin: 20px 5px;
+      background-clip: padding-box;
+      background-color: rgb(52, 153, 255);
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+    }
+
+    &_addOff {
+      width: 100px;
+      min-height: 3rem;
+      margin: 20px 5px;
+      background-clip: padding-box;
+      background-color: rgb(80, 80, 80);
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+    }
+  }
+}

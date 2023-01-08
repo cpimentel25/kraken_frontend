@@ -24,7 +24,7 @@ export function DataFilterNoAbs() {
       value: userData.value[0],
     }));
 
-    categorie.forEach((element) => {
+    categorie?.forEach((element) => {
       const value = data
         .filter((data) => data.categorie === element)
         .reduce((acc, value) => acc + value.value, 0);

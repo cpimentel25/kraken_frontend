@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchValue } from './features/api/callSlice';
+import { fetchCategorie, fetchValue } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import History from './pages/History';
@@ -21,6 +21,7 @@ function App() {
 
   const dispatchData = () => {
     dispatch(fetchValue());
+    dispatch(fetchCategorie());
   };
 
   useEffect(

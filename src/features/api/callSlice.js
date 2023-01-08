@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { FetchData, createNewUser, createNewValue, deleteValue, loginUser } from './counterApi';
+import { FetchCategorie, FetchData, createNewUser, createNewValue, deleteValue, loginUser } from './counterApi';
 
 const initialState = {
   data: [],
@@ -8,14 +8,15 @@ const initialState = {
   currency: 'USD',
   status: 'idle',
   currentSelect: null,
-  categorie: [
-    'Without category',
-    'Salary',
-    'Other income',
-    'Rent',
-    'Services',
-    'Taxes',
-  ],
+  categorie: [],
+  // categorie: [
+  //   'Without category',
+  //   'Salary',
+  //   'Other income',
+  //   'Rent',
+  //   'Services',
+  //   'Taxes',
+  // ],
   categoryFilter: null,
 };
 
@@ -60,6 +61,11 @@ export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
   return response;
 });
 
+export const fetchCategorie = createAsyncThunk('categorie/fetch', async (value) => {
+  const response = await FetchCategorie(value);
+  return response;
+});
+
 export const postValue = createAsyncThunk('data/create', async (value) => {
   const response = await createNewValue(value);
   return response;
@@ -91,6 +97,9 @@ export const valueSlice = createSlice({
       // })
       .addCase(fetchValue.fulfilled, (state, action) => {
         state.data = action.payload;
+      })
+      .addCase(fetchCategorie.fulfilled, (state, action) => {
+        state.categorie = action.payload;
       })
       .addCase(postUser.pending, (state) => {
         state.status = 'loading';
