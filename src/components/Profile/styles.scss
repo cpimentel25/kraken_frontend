@@ -87,11 +87,12 @@
       align-items: center;
       justify-content: flex-start;
       flex-wrap: nowrap;
+      font-size: 15px;
 
       &_shape {
         position: relative;
-        width: 40px;
-        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
         background: $bg-secundary;
         border-radius: 20%;
         color: white;

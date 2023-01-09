@@ -7,6 +7,7 @@ export function DataFilter() {
 
   const userData = useSelector((state) => state.financeData.data);
   const categorie = useSelector((state) => state.financeData.categorie);
+  const mapCategorie = categorie.map(list => list.name);
 
   useEffect(
     () => {
@@ -24,7 +25,7 @@ export function DataFilter() {
       value: userData.value[0],
     }));
 
-    categorie?.forEach((element) => {
+    mapCategorie?.forEach((element) => {
       const value = Math.abs(
         data
           .filter((data) => data.categorie === element)

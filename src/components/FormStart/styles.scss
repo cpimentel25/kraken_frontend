@@ -2,11 +2,11 @@
 
 .formstart {
   width: 320px;
-  min-height: 300px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: nowrap;
   background: $bg-secundary;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -15,6 +15,7 @@
   outline: none;
   border: none;
   text-align: left;
+  color: $white;
 
   &-options {
     margin: 30px 10px;
@@ -61,6 +62,69 @@
     }
   }
 
+  &-goals {
+    width: 280px;
+
+    &-button_remove {
+      margin: 0 5px;
+      background-clip: padding-box;
+      background-color: rgb(52, 153, 255);
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      min-height: 2rem;
+      padding: calc(0.53rem - -1px) calc(1.1rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      // width: 10%;
+    }
+
+    &-form {
+      width: 280px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      &_input {
+        &_name {
+          width: 142px;
+        }
+
+        &_percentage {
+          width: 22px;
+          text-align: center;
+        }
+
+        &_percentage::-webkit-outer-spin-button,
+        &_percentage::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &_name,
+        &_percentage {
+          color: white;
+          display: block;
+          height: 35px;
+          border: none;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 3px;
+          padding: 0 10px;
+          font-size: 15px;
+          margin: 5px;
+        }
+      }
+    }
+  }
+
   &-button {
     display: flex;
 
@@ -88,7 +152,7 @@
     &_addOff {
       width: 100px;
       min-height: 3rem;
-      margin: 20px 5px;
+      margin: 10px 5px;
       background-clip: padding-box;
       background-color: rgb(80, 80, 80);
       border: none;

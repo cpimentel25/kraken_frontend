@@ -10,12 +10,17 @@ import {
   faUser,
   faWallet,
 } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 import './styles.scss';
 
 const ProfileComponent = () => {
+
+  const navigate = useNavigate();
+
   const handleDeleteCredentials = () => {
     localStorage.clear();
+    navigate('/');
   };
 
   const userData = useSelector((state) => state.financeData.user.profile);
@@ -133,6 +138,7 @@ const ProfileComponent = () => {
           className='profile-component-button_logOut'
           type='submit'
           value='submit'
+          onClick={() => navigate('/')}
         >
           Send Invitation
         </button>

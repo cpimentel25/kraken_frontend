@@ -1,5 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { FetchCategorie, FetchData, createNewUser, createNewValue, deleteValue, loginUser } from './counterApi';
+import {
+  FetchCategorie,
+  FetchData,
+  createCategorie,
+  createNewUser,
+  createNewValue,
+  deleteValue,
+  loginUser,
+  updateUser,
+} from './counterApi';
 
 const initialState = {
   data: [],
@@ -9,14 +18,6 @@ const initialState = {
   status: 'idle',
   currentSelect: null,
   categorie: [],
-  // categorie: [
-  //   'Without category',
-  //   'Salary',
-  //   'Other income',
-  //   'Rent',
-  //   'Services',
-  //   'Taxes',
-  // ],
   categoryFilter: null,
 };
 
@@ -27,11 +28,11 @@ function createInitialState() {
     return null;
   }
   return {
-      // initialize state from local storage to enable user to stay logged in
-      profile: JSON.parse(user),
-      error: null,
+    // initialize state from local storage to enable user to stay logged in
+    profile: JSON.parse(user),
+    error: null,
   };
-};
+}
 
 function initialStateGuest() {
   const guest = localStorage.getItem('guest');
@@ -40,11 +41,11 @@ function initialStateGuest() {
     return null;
   }
   return {
-      // initialize state from local storage to enable user to stay logged in
-      profile: JSON.parse(guest),
-      error: null,
+    // initialize state from local storage to enable user to stay logged in
+    profile: JSON.parse(guest),
+    error: null,
   };
-};
+}
 
 export const postUser = createAsyncThunk('user/post', async (value) => {
   const response = await loginUser(value);
@@ -56,28 +57,41 @@ export const postCreateUser = createAsyncThunk('create/post', async (value) => {
   return response;
 });
 
+export const pathUpdateUser = createAsyncThunk('update/path', async (value) => {
+  const response = await updateUser(value);
+  return response;
+})
+
 export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
   const response = await FetchData(value);
   return response;
 });
 
-export const fetchCategorie = createAsyncThunk('categorie/fetch', async (value) => {
-  const response = await FetchCategorie(value);
-  return response;
-});
+export const fetchCategorie = createAsyncThunk(
+  'categorie/fetch',
+  async (value) => {
+    const response = await FetchCategorie(value);
+    return response;
+  }
+);
+
+export const postCategorie = createAsyncThunk(
+  'categorie/create',
+  async (value) => {
+    const response = await createCategorie(value);
+    return response;
+  }
+);
 
 export const postValue = createAsyncThunk('data/create', async (value) => {
   const response = await createNewValue(value);
   return response;
 });
 
-export const deleteOneValue = createAsyncThunk(
-  'data/delete',
-  async (id) => {
-    const response = await deleteValue(id);
-    return response;
-  }
-);
+export const deleteOneValue = createAsyncThunk('data/delete', async (id) => {
+  const response = await deleteValue(id);
+  return response;
+});
 
 export const valueSlice = createSlice({
   name: 'financeData',
@@ -88,18 +102,18 @@ export const valueSlice = createSlice({
     },
     setCategoryFilters: (state, action) => {
       state.categoryFilter = action.payload;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchValue.pending, (state) => {
-      //   state.status = 'loading';
-      // })
       .addCase(fetchValue.fulfilled, (state, action) => {
         state.data = action.payload;
       })
       .addCase(fetchCategorie.fulfilled, (state, action) => {
         state.categorie = action.payload;
+      })
+      .addCase(postUser.rejected, (state) => {
+        state.status = 'error';
       })
       .addCase(postUser.pending, (state) => {
         state.status = 'loading';
@@ -110,8 +124,20 @@ export const valueSlice = createSlice({
         localStorage.setItem('user', JSON.stringify(user.profile));
         state.user = user;
       })
-      .addCase(postUser.rejected, (state, action) => {
+      // .addCase(pathUpdateUser.fulfilled, (state, action) => {
+      //   state.status = 'finish';
+      //   const userActive = action.payload;
+      //   state.user = userActive;
+      // })
+      .addCase(postCategorie.rejected, (state) => {
         state.status = 'error';
+      })
+      .addCase(postCategorie.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(postCategorie.fulfilled, (state, action) => {
+        state.status = 'finish';
+        state.categorie.push(action.payload);
       })
       .addCase(postValue.pending, (state) => {
         state.status = 'loading';
@@ -125,7 +151,7 @@ export const valueSlice = createSlice({
       })
       .addCase(deleteOneValue.fulfilled, (state, action) => {
         state.state = 'finish';
-        state.data.pop(action.payload)
+        state.data.pop(action.payload);
       });
   },
 });

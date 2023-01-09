@@ -7,6 +7,8 @@ const EnterValue = () => {
   const dispatch = useDispatch();
 
   const listOptions = useSelector((state) => state.financeData.categorie);
+  console.log(listOptions);
+
   const user = useSelector((state) => state.financeData.user);
   const id = user?.profile?.id;
 
@@ -47,9 +49,9 @@ const EnterValue = () => {
               {listOptions?.map((categorie) => (
                 <option
                   className='entervalue-input-categorie_options_selection'
-                  key={categorie}
+                  key={categorie.name}
                 >
-                  {categorie}
+                  {categorie.name}
                 </option>
               ))}
             </select>

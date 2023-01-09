@@ -42,6 +42,27 @@ export async function FetchCategorie() {
   }
 };
 
+export async function createCategorie(form) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(form),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/categorie`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function createNewValue(newvalue) {
   const token = localStorage.getItem('token');
 
@@ -113,6 +134,28 @@ export async function createNewUser(newUser) {
 
   try {
     const response = await fetch(`${API}/api/users`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export async function updateUser(update) {
+  const token = localStorage.getItem('token');
+  const id = localStorage.getItem('id');
+
+  const payload = {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(update)
+  };
+
+  try {
+    const response = await fetch(`${API}/api/users/${id}`, payload);
     const data = await response.json();
     return data;
   } catch (error) {

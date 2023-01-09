@@ -1,0 +1,14 @@
+@import '../../scss/colors';
+
+.settings {
+  color: $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+  justify-content: center;
+
+  &_title {
+    margin: 20px 0;
+  }
+}

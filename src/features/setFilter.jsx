@@ -7,6 +7,7 @@ export function DataFilterNoAbs() {
 
   const userData = useSelector((state) => state.financeData.data);
   const categorie = useSelector((state) => state.financeData.categorie);
+  const mapCategorie = categorie.map(list => list.name);
 
   useEffect(
     () => {
@@ -14,17 +15,17 @@ export function DataFilterNoAbs() {
     },
     // eslint-disable-next-line
     [userData]
-  );
+    );
 
-  function dataFilter(setData) {
-    const newArray = [];
+    function dataFilter(setData) {
+      const newArray = [];
 
-    const data = userData.map((userData) => ({
-      categorie: userData.categorie,
-      value: userData.value[0],
-    }));
+      const data = userData.map((userData) => ({
+        categorie: userData.categorie,
+        value: userData.value[0],
+      }));
 
-    categorie?.forEach((element) => {
+      mapCategorie?.forEach((element) => {
       const value = data
         .filter((data) => data.categorie === element)
         .reduce((acc, value) => acc + value.value, 0);

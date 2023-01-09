@@ -9,6 +9,7 @@ import Charts from './pages/Charts';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import AuthPage from './pages/Auth';
+import FormStart from './pages/Start';
 
 import './App.scss';
 
@@ -19,17 +20,20 @@ function App() {
   const userIsLive = useSelector((state) => state.financeData.user);
   const token = localStorage.getItem('token');
 
+  const userActive = userIsLive.profile?.isActive;
+
   const dispatchData = () => {
     dispatch(fetchValue());
-    dispatch(fetchCategorie());
+    if (userActive) {
+      dispatch(fetchCategorie());
+    }
   };
 
   useEffect(
     () => {
       if (token === 'undefined' || token === null) {
-        return setTokenLive(false)
+        return setTokenLive(false);
       }
-
       setTokenLive(true);
       return dispatchData();
     },
@@ -37,22 +41,27 @@ function App() {
     [userIsLive]
   );
 
+
   return (
     <div className='App'>
-        {(!tokenLive) ? (
-          <Routes>
+      {!tokenLive ? (
+        <Routes>
           <Route path='/' element={<AuthPage />} />
-          </Routes>
-        ) : (
-          <Routes>
+        </Routes>
+      ) : !userActive ? (
+        <Routes>
+          <Route path='/' element={<FormStart />} />
+        </Routes>
+      ) : (
+        <Routes>
           <Route path='/' element={<Home />} />,
           <Route path='/history' element={<History />} />,
           <Route path='/charts' element={<Charts />} />,
           <Route path='/settings' element={<Settings />} />,
           <Route path='/profile' element={<Profile />} />
-          </Routes>
-        )}
-      {!tokenLive === true ? null : (<NavBar />)}
+        </Routes>
+      )}
+      {!tokenLive ? null : !userActive ? null : <NavBar />}
     </div>
   );
 }

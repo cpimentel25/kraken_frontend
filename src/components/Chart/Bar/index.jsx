@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { DataFilter } from '../../../features/setDataFilter';
 import { useSelector } from 'react-redux';
 import {
   Bar,
@@ -11,9 +10,10 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { DataFilterNoAbs } from '../../../features/setFilter';
+// import { DataFilter } from '../../../features/setDataFilter';
 
 import './styles.scss';
-import { DataFilterNoAbs } from '../../../features/setFilter';
 
 const ChartBar = () => {
   const [dataBar, setDataBar] = useState([]);

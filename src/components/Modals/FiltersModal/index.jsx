@@ -41,7 +41,7 @@ const FilterModal = () => {
                     defaultChecked={true}
                     onChange={() => handleChange(value)}
                   />
-                  {value}
+                  {value.name}
                 </div>
               </li>
             ))
