@@ -44,6 +44,7 @@ function App() {
 
   return (
     <div className='App'>
+      {!tokenLive ? null : !userActive ? null : <NavBar />}
       {!tokenLive ? (
         <Routes>
           <Route path='/' element={<AuthPage />} />
@@ -61,7 +62,6 @@ function App() {
           <Route path='/profile' element={<Profile />} />
         </Routes>
       )}
-      {!tokenLive ? null : !userActive ? null : <NavBar />}
     </div>
   );
 }

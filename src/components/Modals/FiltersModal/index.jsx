@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryFilters } from '../../../features/api/callSlice';
+
 import './styles.scss';
 
 const FilterModal = () => {

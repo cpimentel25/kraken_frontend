@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import LoginForm from '../../components/Auth/LoginForm';
-
-import './styles.scss';
 import RegisterForm from '../../components/Auth/RegisterForm';
 import { useEffect } from 'react';
+
+import './styles.scss';
 
 const AuthPage = () => {
   const [isShown, setIsShown] = useState(false);

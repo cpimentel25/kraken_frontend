@@ -1,38 +1,97 @@
 @import '../../scss/global';
 
 .navbar {
-  height: auto;
+  width: 200px;
+  height: 900px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  font-size: 18px;
-  margin-bottom: 10px;
+  justify-content: flex-start;
+  font-size: 15px;
+  background-color: $bg-secundary;
+  border-radius: 7px 0 0 7px;
+
+  &-profile {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &_avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: $white;
+      margin: 20px 0;
+
+      &-img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+      }
+    }
+  }
 
   .navbar-icons {
-    height: 50px;
-    background-color: $bg-secundary;
-    border-radius: 7px;
-    display: flex;
+    width: 100%;
+    height: 70%;
 
     .navbar-icons_slect {
-      width: 350px;
       display: flex;
-      justify-content: space-around;
-      align-items: center;
       flex-wrap: nowrap;
-      flex-direction: row;
-      align-content: center;
+      flex-direction: column;
+      align-items: center;
 
       &_link {
+        width: 100%;
+        height: 50px;
         color: $white;
-      }
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        text-decoration: none;
 
-      &_link:hover,
-      &_link:focus {
-        color: $aqua !important;
+        &-title {
+          margin-left: 20px;
+        }
+
+        &-icon {
+          margin-left: 20px;
+        }
       }
+    }
+
+    .navbar-icons_slect :hover {
+      background-color: $aqua !important;
+    }
+  }
+
+  &-bottom {
+    width: 100%;
+    margin-bottom: 20px;
+
+    &_logout {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &-title {
+        margin-left: 20px;
+      }
+    }
+
+    .navbar-bottom_logout:hover {
+      background-color: $aqua !important;
     }
   }
 }

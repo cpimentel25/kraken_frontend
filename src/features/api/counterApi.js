@@ -1,4 +1,4 @@
-const API = process.env.REACT_APP_BACKEND;
+const API = 'http://localhost:8080';
 
 export async function FetchData() {
   const token = localStorage.getItem('token');

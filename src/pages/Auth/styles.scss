@@ -1,14 +1,16 @@
 @import '../../scss/global';
 
 .authPage {
+  width: 1200px;
+  height: 900px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   background: $bg-gradient-blue;
+  border-radius: 7px;
 
   &-selector {
     width: 100%;

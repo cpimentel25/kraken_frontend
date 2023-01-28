@@ -1,13 +1,18 @@
 @import '../../scss/colors';
 
 .home {
+  width: 1000px;
+  height: 900px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
   text-align: center;
   align-items: center;
   justify-content: center;
-  height: 90vh;
+  background-color: $bg-secundary;
+  color: $white;
+  font-size: 15px;
+  border-radius: 0 7px 7px 0;
 
   &-display {
     margin: 15px 0;

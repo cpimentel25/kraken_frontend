@@ -103,6 +103,7 @@ export const valueSlice = createSlice({
     setCategoryFilters: (state, action) => {
       state.categoryFilter = action.payload;
     },
+    reset: () => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -156,6 +157,6 @@ export const valueSlice = createSlice({
   },
 });
 
-export const { setCurrentData, setCategoryFilters } = valueSlice.actions;
+export const { setCurrentData, setCategoryFilters, reset } = valueSlice.actions;
 
 export default valueSlice.reducer;

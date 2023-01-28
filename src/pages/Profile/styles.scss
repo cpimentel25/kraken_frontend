@@ -1,7 +1,14 @@
+@import '../../scss/colors';
+
 .profile {
+  width: 1000px;
+  height: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
   justify-content: center;
+  background-color: $bg-secundary;
+  color: $white;
+  font-size: 15px;
+  border-radius: 0 7px 7px 0;
 }
