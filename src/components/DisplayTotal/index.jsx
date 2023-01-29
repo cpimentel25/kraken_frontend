@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpLong, faDownLong } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+
 import './style.scss';
 
 const DisplayTotal = () => {
@@ -29,30 +28,37 @@ const DisplayTotal = () => {
   [data]);
 
   return (
-    <div key={data?.user} className='displaytotal'>
-      {lastValue > 0 ? (
-        <FontAwesomeIcon className='displaytotal-icon_up' icon={faUpLong} />
-      ) : (
-        <FontAwesomeIcon
-          className='displaytotal-icon_down'
-          icon={faDownLong}
-        />
-      )}
+    <main>
+      <section className='displaylast'>
+        <div className='displaylast-info'>
+          <p className='displaylast-info_text'>Last value entered:</p>
+          <p
+            key={data?.id}
+            className='displaylast-info_lastvalue'
+            style={
+              lastValue > 0
+                ? { color: 'rgb(27, 214, 27)' }
+                : { color: 'rgb(252, 15, 15)' }
+            }
+          >
+            ${lastValue}
+          </p>
+        </div>
+      </section>
+      <section
+        key={data?.user}
+        className='displaytotal'
+        style={
+          lastValue > 0
+            ? { background: 'rgb(27, 214, 27, .12)' }
+            : { background: 'rgb(252, 15, 15, .3)' }
+        }
+      >
       <div className='displaytotal-values'>
-        <h3 className='displaytotal-values_newtotal'>{newTotalValue}</h3>
-        <p
-          key={data?.id}
-          className='displaytotal-values_lastvalue'
-          style={
-            lastValue > 0
-              ? { color: 'rgb(27, 214, 27)' }
-              : { color: 'rgb(252, 15, 15)' }
-          }
-        >
-          ${lastValue}
-        </p>
+        <p className='displaytotal-values_newtotal'>{newTotalValue}</p>
       </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

@@ -7,13 +7,23 @@ import './styles.scss';
 const Home = () => {
 
   return (
-    <div className='home'>
-      <div className='home-display'>
-        <DisplayTotal />
-        <EnterValue />
-      </div>
-      <ListHistory />
-    </div>
+    <main className='home'>
+      <section className='home-section'>
+        <section className='home-section-display'>
+          <div className='home-section-display_box'>
+            <DisplayTotal />
+            <EnterValue />
+          </div>
+        </section>
+        <section className='home-section-chart'>
+          <div className='home-section-chart_box'>
+          </div>
+        </section>
+      </section>
+      <section className='home-list'>
+        <ListHistory />
+      </section>
+    </main>
   );
 };
 

@@ -1,4 +1,4 @@
-@import '../../scss/colors';
+@import '../../scss/global';
 
 .home {
   width: 1000px;
@@ -6,26 +6,68 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background-color: $bg-secundary;
+  background-color: $bg-primary;
   color: $white;
   font-size: 15px;
   border-radius: 0 7px 7px 0;
 
-  &-display {
-    margin: 15px 0;
-    background-color: $bg-secundary;
-    width: 320px;
-    min-height: 300px;
-    border-radius: 10px;
+  &-section{
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &-display {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &_box {
+        width: 100%;
+        height: 430px;
+        background-color: $bg-secundary;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &-chart {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &_box {
+        width: 100%;
+        height: 430px;
+        background-color: $bg-secundary;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+      }
+    }
+  }
+
+
+  &-list {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 }
 

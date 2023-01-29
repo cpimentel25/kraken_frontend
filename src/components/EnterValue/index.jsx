@@ -25,8 +25,11 @@ const EnterValue = () => {
   };
 
   return (
-    <div className='entervalue'>
-      <form onSubmit={handleSubmit}>
+    <main className='entervalue'>
+      <section className='entervalue-info'>
+        <p className='entervalue-info_text'>Enter new value:</p>
+      </section>
+      <form className='entervalue-form' onSubmit={handleSubmit}>
         <div className='entervalue-input'>
           <div className='entervalue-input-newValue'>
             <input
@@ -58,23 +61,15 @@ const EnterValue = () => {
           </div>
         </div>
         <div className='entervalue-button'>
-          {/* <button
-            className='entervalue-button_return'
-            type='submit'
-            disabled={newvalue.value.length < 1}
-          >
-            RETURN
-          </button> */}
           <button
             className='entervalue-button_send'
             type='submit'
-            // disabled={newvalue.value.length < 1}
           >
             SEND
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 };
 
