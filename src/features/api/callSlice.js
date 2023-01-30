@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
   FetchCategorie,
-  // FetchData,
+  FetchData,
   FetchRoster,
   createCategorie,
   createNewUser,
@@ -15,6 +15,7 @@ import {
 const initialState = {
   data: [],
   roster: [],
+  currentRoster: null,
   user: createInitialState(),
   guest: initialStateGuest(),
   currency: 'USD',
@@ -70,10 +71,10 @@ export const fetchRoster = createAsyncThunk('roster/fetch', async (value) => {
   return response;
 });
 
-// export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
-//   const response = await FetchData(value);
-//   return response;
-// });
+export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
+  const response = await FetchData(value);
+  return response;
+});
 
 export const fetchCategorie = createAsyncThunk(
   'categorie/fetch',
@@ -113,6 +114,9 @@ export const valueSlice = createSlice({
   name: 'financeData',
   initialState,
   reducers: {
+    setCurrentRoster: (state, action) => {
+      state.currentRoster = action.payload;
+    },
     setCurrentData: (state, action) => {
       state.currentSelect = action.payload;
     },
@@ -123,9 +127,9 @@ export const valueSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchValue.fulfilled, (state, action) => {
-      //   state.data = action.payload;
-      // })
+      .addCase(fetchValue.fulfilled, (state, action) => {
+        state.data = action.payload;
+      })
       .addCase(fetchRoster.fulfilled, (state, action) => {
         state.roster = action.payload;
       })
@@ -185,6 +189,6 @@ export const valueSlice = createSlice({
   },
 });
 
-export const { setCurrentData, setCategoryFilters, reset } = valueSlice.actions;
+export const { setCurrentRoster, setCurrentData, setCategoryFilters, reset } = valueSlice.actions;
 
 export default valueSlice.reducer;

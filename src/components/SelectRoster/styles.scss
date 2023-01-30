@@ -9,6 +9,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
 
   &-body {
     width: 95%;
@@ -18,25 +19,47 @@
     justify-content: space-between;
 
     &-select {
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
 
+      .select-items div {
+        color: #ffffff;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      &-option::before,
+      &-option::after {
+        box-sizing: border-box;
+      }
+
       &-option {
         width: 400px;
-        height: 36px;
-        padding-right: 7px;
+        height: 34px;
+        appearance: none;
+        background-color: $bg-input;
         border: none;
+        padding-right: 7px;
         border-radius: 4px;
-        font-size: 18px;
+        font-size: 15px;
         outline: 0;
         text-align: right;
-        background-color: $bg-input;
         color: $white;
+        cursor: pointer;
+        line-height: 1.1;
+      }
 
-        &_list {
-          background-color: $bg-input;
-        }
+      &-option::after {
+        content: "";
+        width: 0.8rem;
+        height: 0.5rem;
+        background-color: #fff;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
       }
 
       &_button {

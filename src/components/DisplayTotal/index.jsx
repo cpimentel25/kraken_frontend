@@ -6,14 +6,14 @@ import './style.scss';
 const DisplayTotal = () => {
   const [lastValue, setLastValue] = useState([]);
 
-  const data = useSelector((state) => state.financeData.data);
-  const lastValueData = data?.at();
+  const data = useSelector((state) => state.financeData?.data);
+  const lastValueData = data;
 
-  const newTotal = data?.reduce((acc, act) => acc + parseFloat(act.value), 0);
-  const newTotalValue = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  }).format(newTotal);
+  // const newTotal = data?.reduce((acc, act) => acc + parseFloat(act.value), 0);
+  // const newTotalValue = new Intl.NumberFormat('en-US', {
+  //   style: 'currency',
+  //   currency: 'USD',
+  // }).format(newTotal);
 
   const testValue = () => {
     if (lastValueData !== undefined) {
@@ -55,7 +55,7 @@ const DisplayTotal = () => {
         }
       >
       <div className='displaytotal-values'>
-        <p className='displaytotal-values_newtotal'>{newTotalValue}</p>
+        <p className='displaytotal-values_newtotal'>{}</p>
       </div>
       </section>
     </main>

@@ -7,7 +7,7 @@ const EnterValue = () => {
   const dispatch = useDispatch();
 
   const listOptions = useSelector((state) => state.financeData?.categorie);
-  console.log(listOptions);
+  // console.log(listOptions);
 
   const user = useSelector((state) => state.financeData?.user);
   const id = user?.profile?.id;

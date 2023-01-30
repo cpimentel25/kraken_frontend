@@ -15,33 +15,32 @@ export async function FetchRoster() {
   try {
     const response = await fetch(`${API}/api/roster`, payload);
     const data = await response.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.error(error);
   }
 }
 
-// export async function FetchData() {
-//   const token = localStorage.getItem('token');
+export async function FetchData(id) {
+  const token = localStorage.getItem('token');
 
-//   const payload = {
-//     method: 'GET',
-//     headers: {
-//       'Authorization': `Bearer ${token}`,
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(),
-//   };
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
 
-//   try {
-//     const response = await fetch(`${API}/api/values`, payload);
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+  try {
+    const response = await fetch(`${API}/api/roster/values/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export async function FetchCategorie() {
   const token = localStorage.getItem('token');

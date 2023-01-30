@@ -14,8 +14,8 @@ const ListHistory = () => {
 
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.financeData.data);
-  // console.log(data);
+  const data = useSelector((state) => state.financeData?.data?.values);
+  console.log('Lists data:', data);
 
   const max = data?.length / totalPage;
   const newMax = Math.ceil(max);
@@ -25,7 +25,7 @@ const ListHistory = () => {
     dispatch(setCurrentData(value));
   };
 
-  console.log(showModal);
+  // console.log(showModal);
 
   return (
     <>
