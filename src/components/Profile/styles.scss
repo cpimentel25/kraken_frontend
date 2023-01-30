@@ -7,6 +7,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
+  background-color: $bg-secundary;
+  border-radius: 7px;
 
   &_topMenu {
     width: 100%;
@@ -44,7 +46,7 @@
     align-items: center;
 
     &_img {
-      background: $bg-secundary;
+      background: $white;
       display: inline-block;
       min-width: 100px;
       min-height: 100px;

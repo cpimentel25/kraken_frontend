@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchCategorie, fetchValue } from './features/api/callSlice';
+import { fetchCategorie, fetchRoster, fetchValue } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import History from './pages/History';
@@ -23,7 +23,8 @@ function App() {
   const userActive = userIsLive.profile?.isActive;
 
   const dispatchData = () => {
-    dispatch(fetchValue());
+    // dispatch(fetchValue());
+    dispatch(fetchRoster());
     if (userActive) {
       dispatch(fetchCategorie());
     }

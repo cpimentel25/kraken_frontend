@@ -25,9 +25,14 @@ $gradient-red: linear-gradient(
 );
 
 //backgournd colors
-$bg-primary: rgb(31, 31, 31);
-$bg-secundary: rgb(48, 48, 48);
+$bg-primary: rgb(31, 31, 55);
+$bg-secundary: rgb(50, 60, 85);
 $bg-list: rgb(228, 228, 228);
+$bg-input: rgba(255, 255, 255, 0.1);
+
+//backgournd colors (Dark)
+// $bg-primary: rgb(31, 31, 31);
+// $bg-secundary: rgb(48, 48, 48);
 
 //background gradients
 $bg-gradient-blue: linear-gradient(

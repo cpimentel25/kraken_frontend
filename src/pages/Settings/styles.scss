@@ -1,13 +1,13 @@
-@import '../../scss/colors';
+@import '../../scss/global';
 
 .settings {
   width: 1000px;
   height: 900px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: $bg-secundary;
+  background-color: $bg-primary;
   color: $white;
   font-size: 15px;
   border-radius: 0 7px 7px 0;

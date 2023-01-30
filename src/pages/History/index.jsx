@@ -13,9 +13,9 @@ const History = () => {
   const [page, setPage] = useState(1);
   const totalPage = 10;
 
-  const filterCategory = useSelector((state) => state.financeData.categoryFilter);
+  const filterCategory = useSelector((state) => state.financeData?.categoryFilter);
 
-  const data = useSelector((state) => state.financeData.data);
+  const data = useSelector((state) => state.financeData?.data);
   const [newData, setNewData] = useState(data);
 
   const conditionalValue = () => {
@@ -62,7 +62,7 @@ const History = () => {
       <DisplayTotalHistory data={newData} />
       <div className='history'>
         <div className='history-maplist'>
-          {newData.length
+          {newData?.length
             ? [...newData]
                 // .filter(newDataFilter)
                 // .filter((value) => filterCategory.includes(value.category))

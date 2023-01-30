@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
   FetchCategorie,
-  FetchData,
+  // FetchData,
+  FetchRoster,
   createCategorie,
   createNewUser,
   createNewValue,
+  createRoster,
   deleteValue,
   loginUser,
   updateUser,
@@ -12,6 +14,7 @@ import {
 
 const initialState = {
   data: [],
+  roster: [],
   user: createInitialState(),
   guest: initialStateGuest(),
   currency: 'USD',
@@ -60,12 +63,17 @@ export const postCreateUser = createAsyncThunk('create/post', async (value) => {
 export const pathUpdateUser = createAsyncThunk('update/path', async (value) => {
   const response = await updateUser(value);
   return response;
-})
+});
 
-export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
-  const response = await FetchData(value);
+export const fetchRoster = createAsyncThunk('roster/fetch', async (value) => {
+  const response = await FetchRoster(value);
   return response;
 });
+
+// export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
+//   const response = await FetchData(value);
+//   return response;
+// });
 
 export const fetchCategorie = createAsyncThunk(
   'categorie/fetch',
@@ -79,6 +87,14 @@ export const postCategorie = createAsyncThunk(
   'categorie/create',
   async (value) => {
     const response = await createCategorie(value);
+    return response;
+  }
+);
+
+export const postRoster = createAsyncThunk(
+  'roster/create',
+  async (value) => {
+    const response = await createRoster(value);
     return response;
   }
 );
@@ -107,8 +123,11 @@ export const valueSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchValue.fulfilled, (state, action) => {
-        state.data = action.payload;
+      // .addCase(fetchValue.fulfilled, (state, action) => {
+      //   state.data = action.payload;
+      // })
+      .addCase(fetchRoster.fulfilled, (state, action) => {
+        state.roster = action.payload;
       })
       .addCase(fetchCategorie.fulfilled, (state, action) => {
         state.categorie = action.payload;
@@ -139,6 +158,15 @@ export const valueSlice = createSlice({
       .addCase(postCategorie.fulfilled, (state, action) => {
         state.status = 'finish';
         state.categorie.push(action.payload);
+      })
+      .addCase(postRoster.rejected, (state) => {
+        state.status = 'error';
+      })
+      .addCase(postRoster.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(postRoster.fulfilled, (state) => {
+        state.status = 'finish';
       })
       .addCase(postValue.pending, (state) => {
         state.status = 'loading';

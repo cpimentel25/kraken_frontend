@@ -1,6 +1,6 @@
 const API = 'http://localhost:8080';
 
-export async function FetchData() {
+export async function FetchRoster() {
   const token = localStorage.getItem('token');
 
   const payload = {
@@ -13,13 +13,35 @@ export async function FetchData() {
   };
 
   try {
-    const response = await fetch(`${API}/api/values`, payload);
+    const response = await fetch(`${API}/api/roster`, payload);
     const data = await response.json();
+    // console.log(data);
     return data;
   } catch (error) {
     console.error(error);
   }
-};
+}
+
+// export async function FetchData() {
+//   const token = localStorage.getItem('token');
+
+//   const payload = {
+//     method: 'GET',
+//     headers: {
+//       'Authorization': `Bearer ${token}`,
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(),
+//   };
+
+//   try {
+//     const response = await fetch(`${API}/api/values`, payload);
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 export async function FetchCategorie() {
   const token = localStorage.getItem('token');
@@ -61,7 +83,27 @@ export async function createCategorie(form) {
   } catch (error) {
     console.error(error);
   }
-}
+};
+
+export async function createRoster(form) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(form),
+  };
+  try {
+    const response = await fetch(`${API}/api/roster`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export async function createNewValue(newvalue) {
   const token = localStorage.getItem('token');

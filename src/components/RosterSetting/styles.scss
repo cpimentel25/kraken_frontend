@@ -1,0 +1,89 @@
+@import '../../scss/global';
+
+
+.roster {
+  width: 470px;
+  min-height: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  background: $bg-secundary;
+  border-radius: 0 7px 7px 0;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  text-align: left;
+  color: $white;
+
+  &-setting {
+
+    &-data {
+      width: 400px;
+
+      &_filds {
+        background-color: $bg-input;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0 10px 0;
+        padding: 10px;
+
+        &_title,
+        &_createdby,
+        &_date,
+        &_guests {
+          width: 340px;
+          height: 20px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: 13px;
+          justify-content: space-between
+        }
+      }
+    }
+
+    &-create {
+      width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &_input {
+        width: 100%;
+        color: white;
+        display: block;
+        min-height: 3rem;
+        border: none;
+        background-color: $bg-input;
+        border-radius: 3px;
+        padding: 0 10px;
+        font-size: 15px;
+      }
+
+      &_button {
+        padding: 10px;
+        min-width: 100px;
+        min-height: 3rem;
+        margin: 20px 0 20px 10px;
+        background-clip: padding-box;
+        background-color: rgb(52, 153, 255);
+        border: none;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        touch-action: manipulation;
+        vertical-align: baseline;
+      }
+    }
+  }
+}
