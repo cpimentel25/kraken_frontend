@@ -9,11 +9,11 @@ const DisplayTotal = () => {
   const data = useSelector((state) => state.financeData?.data);
   const lastValueData = data;
 
-  // const newTotal = data?.reduce((acc, act) => acc + parseFloat(act.value), 0);
-  // const newTotalValue = new Intl.NumberFormat('en-US', {
-  //   style: 'currency',
-  //   currency: 'USD',
-  // }).format(newTotal);
+  const values = useSelector((state) => state.financeData?.totalValues?.total)
+  const totalValues = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(values);
 
   const testValue = () => {
     if (lastValueData !== undefined) {
@@ -48,14 +48,14 @@ const DisplayTotal = () => {
       <section
         key={data?.user}
         className='displaytotal'
-        style={
-          lastValue > 0
-            ? { background: 'rgb(27, 214, 27, .12)' }
-            : { background: 'rgb(252, 15, 15, .3)' }
-        }
+        // style={
+        //   lastValue > 0
+        //     ? { background: 'rgb(27, 214, 27, .12)' }
+        //     : { background: 'rgb(114, 134, 211)' }
+        // }
       >
       <div className='displaytotal-values'>
-        <p className='displaytotal-values_newtotal'>{}</p>
+        <p className='displaytotal-values_newtotal'>{totalValues}</p>
       </div>
       </section>
     </main>

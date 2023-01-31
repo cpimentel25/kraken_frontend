@@ -42,6 +42,27 @@ export async function FetchData(id) {
   }
 };
 
+export async function FetchTotal(id) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/values/total/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export async function FetchCategorie() {
   const token = localStorage.getItem('token');
 

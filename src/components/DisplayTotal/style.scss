@@ -4,7 +4,7 @@
   width: 380px;
   height: 110px;
   font-family: $font-value;
-
+  background-color: rgb(114, 134, 211);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -48,6 +48,6 @@
   &-info {
     width: 100%;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
   }
 }

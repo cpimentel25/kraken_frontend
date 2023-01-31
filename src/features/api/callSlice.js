@@ -3,6 +3,7 @@ import {
   FetchCategorie,
   FetchData,
   FetchRoster,
+  FetchTotal,
   createCategorie,
   createNewUser,
   createNewValue,
@@ -15,6 +16,7 @@ import {
 const initialState = {
   data: [],
   roster: [],
+  totalValues: null,
   currentRoster: null,
   user: createInitialState(),
   guest: initialStateGuest(),
@@ -76,6 +78,11 @@ export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
   return response;
 });
 
+export const fetchTotal = createAsyncThunk('rosterTotalValue/fetch', async (value) => {
+  const response = await FetchTotal(value);
+  return response;
+});
+
 export const fetchCategorie = createAsyncThunk(
   'categorie/fetch',
   async (value) => {
@@ -132,6 +139,9 @@ export const valueSlice = createSlice({
       })
       .addCase(fetchRoster.fulfilled, (state, action) => {
         state.roster = action.payload;
+      })
+      .addCase(fetchTotal.fulfilled, (state, action) => {
+        state.totalValues = action.payload[0];
       })
       .addCase(fetchCategorie.fulfilled, (state, action) => {
         state.categorie = action.payload;

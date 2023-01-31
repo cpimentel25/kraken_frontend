@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchValue, setCurrentRoster } from '../../features/api/callSlice';
+import { fetchTotal, fetchValue, setCurrentRoster } from '../../features/api/callSlice';
 
 import './styles.scss';
 
@@ -32,18 +32,14 @@ const SelectRoster = () => {
         createdBy: createByRoster,
       }));
       dispatch(fetchValue(idRoster));
+      dispatch(fetchTotal(idRoster));
     }
 
   }, [roster, selectRoster])
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // dispatch(fetchValue(idRoster));
-  };
-
   return (
     <main className='selectroster'>
-      <form className='selectroster-body' onSubmit={handleSubmit}>
+      <form className='selectroster-body'>
         <h3>Select Roster: </h3>
         <section className='selectroster-body-select'>
           <select
