@@ -1,15 +1,29 @@
 @import '../../scss/global';
 
+.displaymain {
+  width: 470px;
+  height: 380px;
+  background-color: $bg-secundary;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  border-radius: 7px 0 0 7px;
+}
+
 .displaytotal {
-  width: 380px;
-  height: 110px;
+  width: 400px;
+  height: 100px;
   font-family: $font-value;
   background-color: rgb(114, 134, 211);
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 20px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 0;
   border-radius: 7px;
+  justify-content: center;
 
   &-icon_up {
     margin-right: 10px;
@@ -28,6 +42,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-end;
+    padding-right: 12px;
 
     &_newtotal {
       font-weight: 300;
@@ -37,6 +52,7 @@
 }
 
 .displaylast {
+  width: 400px;
   height: 30px;
   // background-color: $bg-primary;
   border-radius: 7px;

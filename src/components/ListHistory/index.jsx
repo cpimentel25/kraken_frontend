@@ -1,29 +1,29 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentData } from '../../features/api/callSlice';
-import Pagination from '../Pagination';
+// import Pagination from '../Pagination';
 import Modal from '../Modals/HistoryModal';
 
 import './style.scss';
 
 const ListHistory = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
   const [page, setPage] = useState(1);
   const totalPage = 5;
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const data = useSelector((state) => state.financeData?.data?.values);
-  console.log('Lists data:', data);
+  // console.log('Lists data:', data);
 
-  const max = data?.length / totalPage;
-  const newMax = Math.ceil(max);
+  // const max = data?.length / totalPage;
+  // const newMax = Math.ceil(max);
 
-  const getDataList = (value) => {
-    setShowModal(!showModal);
-    dispatch(setCurrentData(value));
-  };
+  // const getDataList = (value) => {
+  //   setShowModal(!showModal);
+  //   dispatch(setCurrentData(value));
+  // };
 
   // console.log(showModal);
 
@@ -40,7 +40,7 @@ const ListHistory = () => {
                 .map((values) => (
                   <li
                     name='listData'
-                    onClick={() => getDataList(values)}
+                    // onClick={() => getDataList(values)}
                     key={values._id}
                     className='elementlist-list'
                   >
@@ -61,7 +61,7 @@ const ListHistory = () => {
                       </div>
                       <div className='elementlist-list-each_info'>
                         <div className='elementlist-list-each_info_category'>
-                          {values.categorie}
+                          Categorie: {values.categorie}
                         </div>
                         <div className='elementlist-list-each_info_date'>
                           {new Date(values.createdAt)
@@ -81,9 +81,9 @@ const ListHistory = () => {
                   </li>
                 ))
             : null}
-          {showModal ? <Modal /> : null}
+          {/* {showModal ? <Modal /> : null} */}
         </div>
-        <Pagination page={page} setPage={setPage} max={newMax} />
+        {/* <Pagination page={page} setPage={setPage} max={newMax} /> */}
       </div>
     </>
   );

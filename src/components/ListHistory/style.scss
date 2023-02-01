@@ -2,16 +2,20 @@
 
 .elementlist {
   list-style-type: none;
-  width: 320px;
-  height: 450px;
+  width: 465px;
+  height: 400px;
+  // margin-right: 10px;
+  background-color: $bg-secundary;
+  border-radius: 7px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 
   .elementlist-list {
-    width: 100%;
+    width: 400px;
     height: 70px;
     border-radius: 4px;
     background-color: $bg-secundary;

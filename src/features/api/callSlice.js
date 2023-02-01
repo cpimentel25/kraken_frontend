@@ -9,6 +9,7 @@ import {
   createNewValue,
   createRoster,
   deleteValue,
+  lastValueRoster,
   loginUser,
   updateUser,
 } from './counterApi';
@@ -17,7 +18,9 @@ const initialState = {
   data: [],
   roster: [],
   totalValues: null,
+  lastValue: null,
   currentRoster: null,
+  sendData: null,
   user: createInitialState(),
   guest: initialStateGuest(),
   currency: 'USD',
@@ -83,13 +86,15 @@ export const fetchTotal = createAsyncThunk('rosterTotalValue/fetch', async (valu
   return response;
 });
 
-export const fetchCategorie = createAsyncThunk(
-  'categorie/fetch',
-  async (value) => {
-    const response = await FetchCategorie(value);
-    return response;
-  }
-);
+export const fetchLastValue = createAsyncThunk('lastValueRoster/fetch', async (value) =>{
+  const response = await lastValueRoster(value);
+  return response;
+});
+
+export const fetchCategorie = createAsyncThunk('categorie/fetch', async (value) => {
+  const response = await FetchCategorie(value);
+  return response;
+});
 
 export const postCategorie = createAsyncThunk(
   'categorie/create',
@@ -99,13 +104,10 @@ export const postCategorie = createAsyncThunk(
   }
 );
 
-export const postRoster = createAsyncThunk(
-  'roster/create',
-  async (value) => {
-    const response = await createRoster(value);
-    return response;
-  }
-);
+export const postRoster = createAsyncThunk('roster/create', async (value) => {
+  const response = await createRoster(value);
+  return response;
+});
 
 export const postValue = createAsyncThunk('data/create', async (value) => {
   const response = await createNewValue(value);
@@ -142,6 +144,9 @@ export const valueSlice = createSlice({
       })
       .addCase(fetchTotal.fulfilled, (state, action) => {
         state.totalValues = action.payload[0];
+      })
+      .addCase(fetchLastValue.fulfilled, (state, action) => {
+        state.lastValue = action.payload.values[0];
       })
       .addCase(fetchCategorie.fulfilled, (state, action) => {
         state.categorie = action.payload;
@@ -187,7 +192,7 @@ export const valueSlice = createSlice({
       })
       .addCase(postValue.fulfilled, (state, action) => {
         state.status = 'finish';
-        state.data.push(action.payload);
+        state.sendData = action.payload.values;
       })
       .addCase(postValue.rejected, (state) => {
         state.status = 'error';

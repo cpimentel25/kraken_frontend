@@ -11,4 +11,17 @@
   border-radius: 0 7px 7px 0;
   justify-content: center;
   align-items: center;
+
+  &-display {
+    width: 940px;
+    display: flex;
+    align-items: center;
+  }
+
+  &-list {
+    width: 940px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

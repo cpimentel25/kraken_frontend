@@ -1,52 +1,30 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchLastValue, fetchTotal } from '../../features/api/callSlice';
 
 import './style.scss';
 
 const DisplayTotal = () => {
-  const [lastValue, setLastValue] = useState([]);
+  const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster);
+  const lastValue = useSelector((state) => state.financeData?.lastValue?.value);
+  const values = useSelector((state) => state.financeData?.totalValues?.total);
 
-  const data = useSelector((state) => state.financeData?.data);
-  const lastValueData = data;
-
-  const values = useSelector((state) => state.financeData?.totalValues?.total)
   const totalValues = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   }).format(values);
 
-  const testValue = () => {
-    if (lastValueData !== undefined) {
-      return setLastValue(lastValueData.value);
-    };
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    testValue();
-  },
-  // eslint-disable-next-line
-  [data]);
+    dispatch(fetchTotal(rosterId));
+    dispatch(fetchLastValue(rosterId));
+  }, [dispatch, rosterId, values])
 
   return (
-    <main>
-      <section className='displaylast'>
-        <div className='displaylast-info'>
-          <p className='displaylast-info_text'>Last value entered:</p>
-          <p
-            key={data?.id}
-            className='displaylast-info_lastvalue'
-            style={
-              lastValue > 0
-                ? { color: 'rgb(27, 214, 27)' }
-                : { color: 'rgb(252, 15, 15)' }
-            }
-          >
-            ${lastValue}
-          </p>
-        </div>
-      </section>
+    <main className='displaymain'>
       <section
-        key={data?.user}
+        key={rosterId}
         className='displaytotal'
         // style={
         //   lastValue > 0
@@ -57,6 +35,22 @@ const DisplayTotal = () => {
       <div className='displaytotal-values'>
         <p className='displaytotal-values_newtotal'>{totalValues}</p>
       </div>
+      </section>
+      <section className='displaylast'>
+        <div className='displaylast-info'>
+          <p className='displaylast-info_text'>Last value entered:</p>
+          <p
+            key={rosterId}
+            className='displaylast-info_lastvalue'
+            style={
+              lastValue > 0
+                ? { color: 'rgb(27, 214, 27)' }
+                : { color: 'rgb(252, 15, 15)' }
+            }
+          >
+            ${lastValue}
+          </p>
+        </div>
       </section>
     </main>
   );

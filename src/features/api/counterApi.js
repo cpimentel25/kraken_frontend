@@ -224,3 +224,24 @@ export async function updateUser(update) {
     console.error(error);
   }
 };
+
+export async function lastValueRoster(id) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(),
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/lastvalue/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};

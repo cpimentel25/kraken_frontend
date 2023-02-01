@@ -1,0 +1,15 @@
+@import '../../scss/global';
+
+.charthome {
+  list-style-type: none;
+  width: 465px;
+  height: 400px;
+  background-color: $bg-secundary;
+  border-radius: 7px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}

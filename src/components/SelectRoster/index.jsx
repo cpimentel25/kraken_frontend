@@ -5,16 +5,12 @@ import { fetchTotal, fetchValue, setCurrentRoster } from '../../features/api/cal
 import './styles.scss';
 
 const SelectRoster = () => {
-  const roster = useSelector((state) => state.financeData?.roster);
+  const roster = useSelector((state) => state?.financeData?.roster);
 
   const [selectRoster, setSelectRoster] = useState(null);
 
   const select = useRef(null);
   const dispatch = useDispatch();
-
-  const handleSelect = () => {
-    setSelectRoster(select.current.value);
-  };
 
   const newRoster = roster?.filter((data) => data._id === selectRoster);
 
@@ -22,20 +18,27 @@ const SelectRoster = () => {
   const idRoster = newRoster[0]?._id;
   const createByRoster = newRoster[0]?.createdBy?._id;
 
+  const handleSelect = () => {
+    setSelectRoster(select.current.value);
+  };
   // console.log('title:', titleRoster, 'roster:', idRoster, 'create by:', createByRoster);
 
   useEffect(() => {
-    if(selectRoster !== null) {
+    if(selectRoster !== null || selectRoster !== undefined) {
       dispatch(setCurrentRoster({
         title: titleRoster,
         roster: idRoster,
         createdBy: createByRoster,
       }));
-      dispatch(fetchValue(idRoster));
-      dispatch(fetchTotal(idRoster));
     }
+  }, [createByRoster, dispatch, idRoster, selectRoster, titleRoster])
 
-  }, [roster, selectRoster])
+  const handleClic = (event) => {
+    event.preventDefault();
+
+    dispatch(fetchValue(idRoster));
+    dispatch(fetchTotal(idRoster));
+  }
 
   return (
     <main className='selectroster'>
@@ -59,16 +62,16 @@ const SelectRoster = () => {
               </option>
             ))}
           </select>
-          {/* {roster?.length <= 0
+          {roster?.length <= 0
             ? <button className='selectroster-body-select_button' type='button'>Create Roster</button>
             : <button
               className='selectroster-body-select_button'
               type='submit'
-              // onClick={handleClic}
+              onClick={handleClic}
             >
               Select Roster
             </button>
-          } */}
+          }
         </section>
       </form>
     </main>
