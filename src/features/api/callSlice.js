@@ -9,6 +9,7 @@ import {
   createNewValue,
   createRoster,
   deleteValue,
+  lastFiveValueRoster,
   lastValueRoster,
   loginUser,
   updateUser,
@@ -19,6 +20,7 @@ const initialState = {
   roster: [],
   totalValues: null,
   lastValue: null,
+  lastFiveRoster: null,
   currentRoster: null,
   sendData: null,
   user: createInitialState(),
@@ -91,6 +93,11 @@ export const fetchLastValue = createAsyncThunk('lastValueRoster/fetch', async (v
   return response;
 });
 
+export const fetchLastFive = createAsyncThunk('lastFives/fetch', async (value) => {
+  const response = await lastFiveValueRoster(value);
+  return response;
+});
+
 export const fetchCategorie = createAsyncThunk('categorie/fetch', async (value) => {
   const response = await FetchCategorie(value);
   return response;
@@ -146,7 +153,10 @@ export const valueSlice = createSlice({
         state.totalValues = action.payload[0];
       })
       .addCase(fetchLastValue.fulfilled, (state, action) => {
-        state.lastValue = action.payload.values[0];
+        state.lastValue = action.payload?.values[0];
+      })
+      .addCase(fetchLastFive.fulfilled, (state, action) => {
+        state.lastFiveRoster = action.payload;
       })
       .addCase(fetchCategorie.fulfilled, (state, action) => {
         state.categorie = action.payload;

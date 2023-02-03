@@ -15,13 +15,16 @@ import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 
 const ProfileComponent = () => {
+  const user = useSelector((state) => state.financeData?.user?.profile);
+  const nameAvatar = user.firstName + user.lastName;
+  const avatar = `https://robohash.org/${nameAvatar}.png`;
 
   const navigate = useNavigate();
 
-  const handleDeleteCredentials = () => {
-    localStorage.clear();
-    navigate('/');
-  };
+  // const handleDeleteCredentials = () => {
+  //   localStorage.clear();
+  //   navigate('/');
+  // };
 
   const userData = useSelector((state) => state.financeData.user.profile);
   const dataUser = useSelector((state) => state.financeData);
@@ -44,19 +47,20 @@ const ProfileComponent = () => {
   return (
     <div className='profile-component'>
       <div className='profile-component_topMenu'>
-        <div
+        {/* <div
           className='profile-component_topMenu_setting'
-          onClick={handleDeleteCredentials}
+          // onClick={handleDeleteCredentials}
         >
           <FontAwesomeIcon className='shape-icon' icon={faRightFromBracket} />
-        </div>
-        <h3 className='profile-component_topMenu_title'>Profile</h3>
-        <div className='profile-component_topMenu_notification'>
+        </div> */}
+        {/* <h3 className='profile-component_topMenu_title'>Profile</h3> */}
+        {/* <div className='profile-component_topMenu_notification'>
           <FontAwesomeIcon className='shape-icon' icon={faBell} />
-        </div>
+        </div> */}
       </div>
       <div className='profile-component_sectionID'>
         <div className='profile-component_sectionID_img'>
+          <img className='profile-component_sectionID_img_avatar' src={avatar} alt='avatar' />
           <div className='profile-component_sectionID_img_button'>
             <FontAwesomeIcon className='shape-icon' icon={faPlus} />
           </div>
@@ -140,7 +144,7 @@ const ProfileComponent = () => {
           value='submit'
           onClick={() => navigate('/')}
         >
-          Send Invitation
+          Edit Information
         </button>
       </div>
     </div>

@@ -17,8 +17,10 @@ const DisplayTotal = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchTotal(rosterId));
-    dispatch(fetchLastValue(rosterId));
+    if (rosterId?.length){
+      dispatch(fetchTotal(rosterId));
+      dispatch(fetchLastValue(rosterId));
+    }
   }, [dispatch, rosterId, values])
 
   return (

@@ -19,8 +19,8 @@ const NavBar = () => {
 
   const logout = () => {
     localStorage.clear();
-    dispatch(reset());
     navigate('/');
+    dispatch(reset());
   };
 
   return (
@@ -63,16 +63,16 @@ const NavBar = () => {
             <p className='navbar-icons_slect_link-title'>Home</p>
           </Link>
           <Link
-            to='/history'
+            to='/search'
             className='navbar-icons_slect_link'
-            style={ select === 'history' ? { background: 'rgba(52, 153, 255, 1)' } : null }
-            onClick={() => setSelect('history')}
+            style={ select === 'search' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            onClick={() => setSelect('search')}
           >
             <FontAwesomeIcon
               className='navbar-icons_slect_link-icon'
               icon={faList}
             />
-            <p className='navbar-icons_slect_link-title'>History</p>
+            <p className='navbar-icons_slect_link-title'>Search</p>
           </Link>
           <Link
             to='/charts'

@@ -1,89 +1,64 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentData } from '../../features/api/callSlice';
-// import Pagination from '../Pagination';
-import Modal from '../Modals/HistoryModal';
+import { fetchLastFive } from '../../features/api/callSlice';
 
 import './style.scss';
 
 const ListHistory = () => {
-  // const [showModal, setShowModal] = useState(false);
+  const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster);
+  const data = useSelector((state) => state.financeData?.lastFiveRoster);
 
-  const [page, setPage] = useState(1);
-  const totalPage = 5;
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
-
-  const data = useSelector((state) => state.financeData?.data?.values);
-  // console.log('Lists data:', data);
-
-  // const max = data?.length / totalPage;
-  // const newMax = Math.ceil(max);
-
-  // const getDataList = (value) => {
-  //   setShowModal(!showModal);
-  //   dispatch(setCurrentData(value));
-  // };
-
-  // console.log(showModal);
+  useEffect(() => {
+    if (rosterId?.length) {
+      dispatch(fetchLastFive(rosterId));
+    }
+  }, [dispatch, rosterId])
 
   return (
     <>
       <div className='elementlist'>
         <div className='elementlist-maplist'>
-          {data?.length
-            ? [...data]
-                .slice(
-                  (page - 1) * totalPage,
-                  (page - 1) * totalPage + totalPage
-                )
-                .map((values) => (
-                  <li
-                    name='listData'
-                    // onClick={() => getDataList(values)}
-                    key={values._id}
-                    className='elementlist-list'
+          {data?.map((values) => (
+            <li name='listData' key={values._id} className='elementlist-list'>
+              <div className='elementlist-list-each'>
+                <div className='elementlist-list-each_input'>
+                  <div
+                    name='displaylastValue'
+                    className='elementlist-list-each_input_value'
+                    style={
+                      values.value >= 0
+                        ? { color: 'rgb(27, 214, 27)' }
+                        : { color: 'rgb(252, 15, 15)' }
+                    }
                   >
-                    <div className='elementlist-list-each'>
-                      <div className='elementlist-list-each_input'>
-                        <div
-                          name='displaylastValue'
-                          className='elementlist-list-each_input_value'
-                          style={
-                            values.value >= 0
-                              ? { color: 'rgb(27, 214, 27)' }
-                              : { color: 'rgb(252, 15, 15)' }
-                          }
-                        >
-                          {values.value}
-                        </div>
-                        <div>{values.currency}</div>
-                      </div>
-                      <div className='elementlist-list-each_info'>
-                        <div className='elementlist-list-each_info_category'>
-                          Categorie: {values.categorie}
-                        </div>
-                        <div className='elementlist-list-each_info_date'>
-                          {new Date(values.createdAt)
-                            .toString()
-                            .split(' ')
-                            .splice(0, 4)
-                            .join(' ')}
-                        </div>
-                        <div className='elementlist-list-each_info_hour'>
-                          {new Date(values.createdAt)
-                            .toString()
-                            .split(' ')
-                            .splice(4, 1)}
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                ))
-            : null}
-          {/* {showModal ? <Modal /> : null} */}
+                    {values.value}
+                  </div>
+                  <div>{values.currency}</div>
+                </div>
+                <div className='elementlist-list-each_info'>
+                  <div className='elementlist-list-each_info_category'>
+                    Categorie: {values.categorie}
+                  </div>
+                  <div className='elementlist-list-each_info_date'>
+                    {new Date(values.createdAt)
+                      .toString()
+                      .split(' ')
+                      .splice(0, 4)
+                      .join(' ')}
+                  </div>
+                  <div className='elementlist-list-each_info_hour'>
+                    {new Date(values.createdAt)
+                      .toString()
+                      .split(' ')
+                      .splice(4, 1)}
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
         </div>
-        {/* <Pagination page={page} setPage={setPage} max={newMax} /> */}
       </div>
     </>
   );

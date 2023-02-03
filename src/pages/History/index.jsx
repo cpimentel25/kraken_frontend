@@ -1,66 +1,62 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import Pagination from '../../components/Pagination';
-import DisplayTotalHistory from '../../components/DisplayTotalHistory';
-import FilterModal from '../../components/Modals/FiltersModal';
-
+import FilterBar from '../../components/FilterBar';
 import './style.scss';
 
-const History = () => {
-  const [positive, setPositive] = useState(true);
-  const [negative, setNegative] = useState(true);
+const Search = () => {
+  // const [positive, setPositive] = useState(true);
+  // const [negative, setNegative] = useState(true);
 
-  const [page, setPage] = useState(1);
-  const totalPage = 10;
+  // const [page, setPage] = useState(1);
+  // const totalPage = 10;
 
-  const filterCategory = useSelector((state) => state.financeData?.categoryFilter);
+  // const filterCategory = useSelector((state) => state.financeData?.categoryFilter);
 
-  const data = useSelector((state) => state.financeData?.data);
-  const [newData, setNewData] = useState(data);
+  // const data = useSelector((state) => state.financeData?.data);
+  // const [newData, setNewData] = useState(data);
 
-  const conditionalValue = () => {
-    if (positive === true && negative === false) {
-      return setNewData(data.filter((values) => values.value > 0));
-    } else if (positive === false && negative === true) {
-      return setNewData(data.filter((values) => values.value < 0));
-    }
-    return setNewData(data);
-  };
+  // const conditionalValue = () => {
+  //   if (positive === true && negative === false) {
+  //     return setNewData(data.filter((values) => values.value > 0));
+  //   } else if (positive === false && negative === true) {
+  //     return setNewData(data.filter((values) => values.value < 0));
+  //   }
+  //   return setNewData(data);
+  // };
 
-  const handlePositive = () => {
-    setPositive(!positive);
-    setNegative(false);
-  };
+  // const handlePositive = () => {
+  //   setPositive(!positive);
+  //   setNegative(false);
+  // };
 
-  const handleNegative = () => {
-    setNegative(!negative);
-    setPositive(false);
-  };
+  // const handleNegative = () => {
+  //   setNegative(!negative);
+  //   setPositive(false);
+  // };
 
-  const newDataFilter = (value) => {
-    if (filterCategory !== null) {
-      // return filterCategory.includes(value.category);
-      setNewData(data.filter((value) => filterCategory.includes(value.categorie)));
-    }
-    return newData;
-  };
+  // const newDataFilter = (value) => {
+  //   if (filterCategory !== null) {
+  //     // return filterCategory.includes(value.category);
+  //     setNewData(data.filter((value) => filterCategory.includes(value.categorie)));
+  //   }
+  //   return newData;
+  // };
 
-  useEffect(
-    () => {
-      conditionalValue();
-      newDataFilter();
-    },
-    // eslint-disable-next-line
-    [positive, negative, data, filterCategory]
-  );
+  // useEffect(
+  //   () => {
+  //     conditionalValue();
+  //     newDataFilter();
+  //   },
+  //   // eslint-disable-next-line
+  //   [positive, negative, data, filterCategory]
+  // );
 
-  const max = data.length / totalPage;
-  const newMax = Math.ceil(max);
+  // const max = data.length / totalPage;
+  // const newMax = Math.ceil(max);
 
   return (
     <div className='main'>
-      <DisplayTotalHistory data={newData} />
-      <div className='history'>
+      <FilterBar />
+      {/* <DisplayTotalHistory data={newData} /> */}
+      {/* <div className='history'>
         <div className='history-maplist'>
           {newData?.length
             ? [...newData]
@@ -123,10 +119,10 @@ const History = () => {
             Negative
           </button>
         </div>
-      </div>
-      <FilterModal />
+      </div> */}
+      {/* <FilterModal /> */}
     </div>
   );
 };
 
-export default History;
+export default Search;

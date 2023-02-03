@@ -6,8 +6,9 @@ import './styles.scss';
 
 const SelectRoster = () => {
   const roster = useSelector((state) => state?.financeData?.roster);
+  const currentRoster = useSelector((state) => state.financeData?.currentRoster?.roster)
 
-  const [selectRoster, setSelectRoster] = useState(null);
+  const [selectRoster, setSelectRoster] = useState(currentRoster);
 
   const select = useRef(null);
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const SelectRoster = () => {
   const titleRoster = newRoster[0]?.title;
   const idRoster = newRoster[0]?._id;
   const createByRoster = newRoster[0]?.createdBy?._id;
+  const createdAtRoster = newRoster[0]?.createdAt
 
   const handleSelect = () => {
     setSelectRoster(select.current.value);
@@ -24,21 +26,23 @@ const SelectRoster = () => {
   // console.log('title:', titleRoster, 'roster:', idRoster, 'create by:', createByRoster);
 
   useEffect(() => {
-    if(selectRoster !== null || selectRoster !== undefined) {
+    if(selectRoster?.length) {
+    // if(selectRoster !== null || selectRoster !== undefined) {
       dispatch(setCurrentRoster({
         title: titleRoster,
         roster: idRoster,
         createdBy: createByRoster,
+        createdAt: createdAtRoster,
       }));
     }
-  }, [createByRoster, dispatch, idRoster, selectRoster, titleRoster])
+  }, [selectRoster])
 
-  const handleClic = (event) => {
-    event.preventDefault();
+  // const handleClic = (event) => {
+  //   event.preventDefault();
 
-    dispatch(fetchValue(idRoster));
-    dispatch(fetchTotal(idRoster));
-  }
+  //   dispatch(fetchValue(idRoster));
+  //   dispatch(fetchTotal(idRoster));
+  // };
 
   return (
     <main className='selectroster'>
@@ -51,6 +55,9 @@ const SelectRoster = () => {
             className='selectroster-body-select-option'
             onChange={handleSelect}
           >
+            <option value='none' selected disabled hidden>
+              Select an Roster
+            </option>
             {roster?.map((data) => (
               <option
                 key={data.title}
@@ -62,7 +69,7 @@ const SelectRoster = () => {
               </option>
             ))}
           </select>
-          {roster?.length <= 0
+          {/* {roster?.length <= 0
             ? <button className='selectroster-body-select_button' type='button'>Create Roster</button>
             : <button
               className='selectroster-body-select_button'
@@ -71,7 +78,7 @@ const SelectRoster = () => {
             >
               Select Roster
             </button>
-          }
+          } */}
         </section>
       </form>
     </main>

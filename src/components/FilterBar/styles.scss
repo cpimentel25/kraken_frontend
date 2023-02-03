@@ -1,0 +1,122 @@
+@import '../../scss/global';
+
+.filterbar {
+  width: 940px;
+  height: 70px;
+  background-color: $bg-secundary;
+  font-size: 14px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  &-roster {
+    &_title {
+      &_select {
+        color: $vanilla;
+      }
+    }
+  }
+
+  &-date {
+    display: flex;
+    gap: 20px;
+
+    &_created {
+      &_info {
+        color: $vanilla;
+      }
+    }
+  }
+
+  &-categorie {
+    &_select {
+      width: 140px;
+      height: 40px;
+      font-size: 15px;
+      color: $white;
+      background-color: $bg-input;
+      border: none;
+      text-align: right;
+      padding-right: 10px;
+      border-radius: 5px;
+    }
+  }
+
+  &-input {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    &_min-input,
+    &_max-input {
+      color: $vanilla;
+      width: 100px;
+      height: 40px;
+      font-size: 15px;
+      background-color: $bg-input;
+      border: none;
+      border-radius: 5px;
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    &_min-input::-webkit-outer-spin-button,
+    &_min-input::-webkit-inner-spin-button,
+    &_max-input::-webkit-outer-spin-button,
+    &_max-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &-submit {
+    &_btn {
+      padding: 10px;
+      width: 80px;
+      height: 36px;
+      background-clip: padding-box;
+      background-color: rgb(52, 153, 255);
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+    }
+  }
+}
+
+.react-datepicker {
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-size: 0.8rem;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #aeaeae;
+  border-radius: 0.3rem;
+  display: inline-block;
+  position: relative;
+
+  .react-datepicker__triangle {
+    position: absolute;
+    left: 50px;
+  }
+
+  .react-datepicker__aria-live {
+    position: absolute;
+    clip-path: circle(0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    width: 1px;
+    white-space: nowrap;
+  }
+}

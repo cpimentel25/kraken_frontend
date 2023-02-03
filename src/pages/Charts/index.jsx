@@ -1,36 +1,36 @@
 import { useState } from 'react';
 import ChartLiner from '../../components/Chart/Liner';
 import ChartRadar from '../../components/Chart/Radar';
-
-import './styles.scss';
 import ChartBar from '../../components/Chart/Bar';
 
+import './styles.scss';
+
 const Charts = () => {
-  const [showChartBar, setShowChartBar] = useState(true);
-  const [showChartRadar, setShowChartRadar] = useState(false);
-  const [showChartLine, setShowChartLine] = useState(false);
+  // const [showChartBar, setShowChartBar] = useState(true);
+  // const [showChartRadar, setShowChartRadar] = useState(false);
+  // const [showChartLine, setShowChartLine] = useState(false);
 
-  function showChartSelectBar() {
-    setShowChartBar(true);
-    setShowChartRadar(false);
-    setShowChartLine(false);
-  }
+  // function showChartSelectBar() {
+  //   setShowChartBar(true);
+  //   setShowChartRadar(false);
+  //   setShowChartLine(false);
+  // }
 
-  function showChartSelectRadar() {
-    setShowChartBar(false);
-    setShowChartRadar(true);
-    setShowChartLine(false);
-  }
+  // function showChartSelectRadar() {
+  //   setShowChartBar(false);
+  //   setShowChartRadar(true);
+  //   setShowChartLine(false);
+  // }
 
-  function showChartSelectLine() {
-    setShowChartBar(false);
-    setShowChartRadar(false);
-    setShowChartLine(true);
-  }
+  // function showChartSelectLine() {
+  //   setShowChartBar(false);
+  //   setShowChartRadar(false);
+  //   setShowChartLine(true);
+  // }
 
   return (
     <div className='charts'>
-      <div className='charts-recharts'>
+      {/* <div className='charts-recharts'>
         {showChartBar ? <ChartBar /> : null}
         {showChartRadar ? <ChartRadar /> : null}
         {showChartLine ? <ChartLiner /> : null}
@@ -72,7 +72,7 @@ const Charts = () => {
         >
           Line
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

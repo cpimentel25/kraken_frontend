@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchCategorie, fetchRoster, fetchValue } from './features/api/callSlice';
+import { fetchCategorie, fetchRoster } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
-import History from './pages/History';
 import Charts from './pages/Charts';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
@@ -12,6 +11,7 @@ import AuthPage from './pages/Auth';
 import FormStart from './pages/Start';
 
 import './App.scss';
+import Search from './pages/History';
 
 function App() {
   const [tokenLive, setTokenLive] = useState(false);
@@ -57,7 +57,7 @@ function App() {
       ) : (
         <Routes>
           <Route path='/' element={<Home />} />,
-          <Route path='/history' element={<History />} />,
+          <Route path='/search' element={<Search />} />,
           <Route path='/charts' element={<Charts />} />,
           <Route path='/settings' element={<Settings />} />,
           <Route path='/profile' element={<Profile />} />

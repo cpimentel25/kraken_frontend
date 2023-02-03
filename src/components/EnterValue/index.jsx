@@ -28,7 +28,9 @@ const EnterValue = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchValue(rosterId));
+    if (rosterId?.length) {
+      dispatch(fetchValue(rosterId));
+    }
   }, [sendData]);
 
   return (
