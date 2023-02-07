@@ -22,6 +22,7 @@ const initialState = {
   lastValue: null,
   lastFiveRoster: null,
   currentRoster: null,
+  settingRoster: null,
   sendData: null,
   user: createInitialState(),
   guest: initialStateGuest(),
@@ -83,25 +84,37 @@ export const fetchValue = createAsyncThunk('data/fetch', async (value) => {
   return response;
 });
 
-export const fetchTotal = createAsyncThunk('rosterTotalValue/fetch', async (value) => {
-  const response = await FetchTotal(value);
-  return response;
-});
+export const fetchTotal = createAsyncThunk(
+  'rosterTotalValue/fetch',
+  async (value) => {
+    const response = await FetchTotal(value);
+    return response;
+  }
+);
 
-export const fetchLastValue = createAsyncThunk('lastValueRoster/fetch', async (value) =>{
-  const response = await lastValueRoster(value);
-  return response;
-});
+export const fetchLastValue = createAsyncThunk(
+  'lastValueRoster/fetch',
+  async (value) => {
+    const response = await lastValueRoster(value);
+    return response;
+  }
+);
 
-export const fetchLastFive = createAsyncThunk('lastFives/fetch', async (value) => {
-  const response = await lastFiveValueRoster(value);
-  return response;
-});
+export const fetchLastFive = createAsyncThunk(
+  'lastFives/fetch',
+  async (value) => {
+    const response = await lastFiveValueRoster(value);
+    return response;
+  }
+);
 
-export const fetchCategorie = createAsyncThunk('categorie/fetch', async (value) => {
-  const response = await FetchCategorie(value);
-  return response;
-});
+export const fetchCategorie = createAsyncThunk(
+  'categorie/fetch',
+  async (value) => {
+    const response = await FetchCategorie(value);
+    return response;
+  }
+);
 
 export const postCategorie = createAsyncThunk(
   'categorie/create',
@@ -140,6 +153,9 @@ export const valueSlice = createSlice({
       state.categoryFilter = action.payload;
     },
     reset: () => initialState,
+    setRosterSetting: (state, action) => {
+      state.settingRoster = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -214,6 +230,12 @@ export const valueSlice = createSlice({
   },
 });
 
-export const { setCurrentRoster, setCurrentData, setCategoryFilters, reset } = valueSlice.actions;
+export const {
+  setCurrentRoster,
+  setCurrentData,
+  setCategoryFilters,
+  reset,
+  setRosterSetting,
+} = valueSlice.actions;
 
 export default valueSlice.reducer;

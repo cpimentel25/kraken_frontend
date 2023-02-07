@@ -31,6 +31,7 @@ const EnterValue = () => {
     if (rosterId?.length) {
       dispatch(fetchValue(rosterId));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sendData]);
 
   return (

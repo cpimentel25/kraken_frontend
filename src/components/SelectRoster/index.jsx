@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTotal, fetchValue, setCurrentRoster } from '../../features/api/callSlice';
+import { setCurrentRoster } from '../../features/api/callSlice';
 
 import './styles.scss';
 
@@ -35,6 +35,7 @@ const SelectRoster = () => {
         createdAt: createdAtRoster,
       }));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectRoster])
 
   // const handleClic = (event) => {

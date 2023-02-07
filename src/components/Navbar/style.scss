@@ -20,6 +20,10 @@
     justify-content: center;
     flex-direction: column;
 
+    &_fullname-name {
+      color: $vanilla;
+    }
+
     &_avatar {
       width: 90px;
       height: 90px;

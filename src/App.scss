@@ -8,5 +8,13 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  // background-color: $bg-gradient-blue;
+  background: $gradient-blue;
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
 }

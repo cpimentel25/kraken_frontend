@@ -7,10 +7,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: nowrap;
   background: $bg-secundary;
-  border-radius: 0 7px 7px 0;
+  border-radius: 7px 0 0 7px;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
@@ -18,36 +18,11 @@
   color: $white;
 
   &-setting {
-
-    &-data {
-      width: 400px;
-
-      &_filds {
-        background-color: $bg-input;
-        border-radius: 4px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px 0 10px 0;
-        padding: 10px;
-
-        &_title,
-        &_createdby,
-        &_date,
-        &_guests {
-          width: 340px;
-          height: 20px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          font-size: 13px;
-          justify-content: space-between
-        }
-      }
-    }
+    height: 50%;
 
     &-create {
       width: 400px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;

@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBell,
   faCalendarDays,
   faEnvelope,
   faFeatherPointed,
   faPlus,
-  faRightFromBracket,
   faUser,
   faWallet,
 } from '@fortawesome/free-solid-svg-icons';
@@ -20,11 +18,6 @@ const ProfileComponent = () => {
   const avatar = `https://robohash.org/${nameAvatar}.png`;
 
   const navigate = useNavigate();
-
-  // const handleDeleteCredentials = () => {
-  //   localStorage.clear();
-  //   navigate('/');
-  // };
 
   const userData = useSelector((state) => state.financeData.user.profile);
   const dataUser = useSelector((state) => state.financeData);
@@ -47,16 +40,6 @@ const ProfileComponent = () => {
   return (
     <div className='profile-component'>
       <div className='profile-component_topMenu'>
-        {/* <div
-          className='profile-component_topMenu_setting'
-          // onClick={handleDeleteCredentials}
-        >
-          <FontAwesomeIcon className='shape-icon' icon={faRightFromBracket} />
-        </div> */}
-        {/* <h3 className='profile-component_topMenu_title'>Profile</h3> */}
-        {/* <div className='profile-component_topMenu_notification'>
-          <FontAwesomeIcon className='shape-icon' icon={faBell} />
-        </div> */}
       </div>
       <div className='profile-component_sectionID'>
         <div className='profile-component_sectionID_img'>

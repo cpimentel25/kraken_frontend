@@ -1,0 +1,119 @@
+@import '../../scss/global';
+
+.sharedroster {
+  width: 470px;
+  min-height: 850px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  background: $bg-secundary;
+  border-radius: 0 7px 7px 0;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+  text-align: left;
+  color: $white;
+
+
+  &-guests {
+    margin: 40px 0 30px 0;
+
+    &-form {
+      width: 400px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &_input {
+        width: 100%;
+        color: white;
+        display: block;
+        min-height: 3rem;
+        border: none;
+        background-color: rgb(71, 80, 102);
+        border-radius: 3px;
+        padding: 0 10px;
+        font-size: 15px;
+      }
+
+      &_btn {
+        padding: 10px;
+        min-width: 100px;
+        min-height: 3rem;
+        margin: 20px 0 20px 10px;
+        background-clip: padding-box;
+        background-color: rgb(52, 153, 255);
+        border: none;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        touch-action: manipulation;
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  &-important{
+    width: 400px;
+    height: 90px;
+    background-color: $bg-primary;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+
+    &_info {
+      width: 370px;
+      height: 70px;
+    }
+  }
+
+  &-guestsinfo {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &-user{
+      width: 370px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0 10px 0;
+      padding: 5px 5px 5px 15px;
+      background-color: $bg-input;
+
+      &_btn{
+        width: 80px;
+        height: 2.2rem;
+        background-clip: padding-box;
+        background-color: $btn-warining;
+        border: none;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        touch-action: manipulation;
+        vertical-align: baseline;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import '../../scss/global';
+
+.filterresults {
+  width: 940px;
+  height: 750px;
+  background-color: $bg-secundary;
+  border: none;
+  border-radius: 7px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+
+  &-box {
+    width: 900px;
+    height: 710px;
+    border: none;
+    border-radius: 7px;
+
+    &_result {
+      width: 870px;
+      height: 50px;
+      background-color: $bg-primary;
+      border: none;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 7px 0;
+      padding: 0 15px;
+
+      &-value {
+        width: 110px;
+      }
+
+      &-categorie {
+        width: 120px;
+      }
+
+      &-description {
+        width: 200px;
+      }
+
+      &-createdAt {
+        width: 100px;
+      }
+
+      &-createdBy {
+        width: 210px;
+      }
+    }
+  }
+}

@@ -87,11 +87,11 @@
   }
 
   &_send:disabled {
-    background-color: $button-disable;
+    background-color: $btn-disable;
   }
 
   .entervalue-button_send:disabled:hover {
-    background-color: $button-disable;
+    background-color: $btn-disable;
   }
 
   .entervalue-button_send:hover,

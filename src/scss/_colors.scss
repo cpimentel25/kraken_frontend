@@ -6,13 +6,16 @@ $vanilla: rgb(255, 235, 183);
 $green: rgb(27, 214, 27);
 $blue: rgb(53, 53, 255);
 $red: rgb(252, 15, 15);
-$button: #ff6a06;
-$button-hover: #d45500;
-$button-disable: #f7eae17e;
 $aqua: rgba(52, 153, 255, 1);
 $aqua-hover: rgb(35, 117, 199);
 $aqua-dark: rgba(58, 57, 133, 1);
 $grey: rgb(80, 80, 80);
+
+//buttons
+$button: #ff6a06;
+$button-hover: #d45500;
+$btn-disable: #f7eae17e;
+$btn-warining: rgb(245, 80, 80);
 
 //gradietns
 $button-gradient-primary: linear-gradient(
@@ -25,6 +28,12 @@ $gradient-red: linear-gradient(
   rgba(226, 28, 52, 1) 0%,
   rgba(80, 11, 40, 1) 100%
 );
+$gradient-green: linear-gradient(
+  140deg,
+  rgba(5, 30, 34, 1) 0%,
+  rgba(90, 148, 77, 1) 50%
+);
+$gradient-blue: linear-gradient(140deg, rgba(53,58,95,1) 0%, rgba(158,186,243,1) 50%);
 
 //backgournd colors
 $bg-primary: rgb(31, 31, 55);

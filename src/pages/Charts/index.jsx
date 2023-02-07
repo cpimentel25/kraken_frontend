@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import ChartLiner from '../../components/Chart/Liner';
-import ChartRadar from '../../components/Chart/Radar';
-import ChartBar from '../../components/Chart/Bar';
+// import { useState } from 'react';
+// import ChartLiner from '../../components/Chart/Liner';
+// import ChartRadar from '../../components/Chart/Radar';
+// import ChartBar from '../../components/Chart/Bar';
 
 import './styles.scss';
 

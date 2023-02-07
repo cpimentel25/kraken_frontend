@@ -11,7 +11,7 @@ import AuthPage from './pages/Auth';
 import FormStart from './pages/Start';
 
 import './App.scss';
-import Search from './pages/History';
+import Search from './pages/Search';
 
 function App() {
   const [tokenLive, setTokenLive] = useState(false);
@@ -42,27 +42,28 @@ function App() {
     [userIsLive]
   );
 
-
   return (
     <div className='App'>
-      {!tokenLive ? null : !userActive ? null : <NavBar />}
-      {!tokenLive ? (
-        <Routes>
-          <Route path='/' element={<AuthPage />} />
-        </Routes>
-      ) : !userActive ? (
-        <Routes>
-          <Route path='/' element={<FormStart />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path='/' element={<Home />} />,
-          <Route path='/search' element={<Search />} />,
-          <Route path='/charts' element={<Charts />} />,
-          <Route path='/settings' element={<Settings />} />,
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
-      )}
+      <div className='App-content'>
+        {!tokenLive ? null : !userActive ? null : <NavBar />}
+        {!tokenLive ? (
+          <Routes>
+            <Route path='/' element={<AuthPage />} />
+          </Routes>
+        ) : !userActive ? (
+          <Routes>
+            <Route path='/' element={<FormStart />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path='/' element={<Home />} />,
+            <Route path='/search' element={<Search />} />,
+            <Route path='/charts' element={<Charts />} />,
+            <Route path='/settings' element={<Settings />} />,
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
+        )}
+      </div>
     </div>
   );
 }

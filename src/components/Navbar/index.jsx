@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faList, faChartLine, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHouse,
+  faUser,
+  faChartLine,
+  faGear,
+  faRightFromBracket,
+  faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../../features/api/callSlice';
@@ -29,9 +36,9 @@ const NavBar = () => {
         <div className='navbar-profile_avatar'>
           {user?.avatar ? (
             <img
-            className='navbar-profile_avatar-img'
-            alt='avatar'
-            src={user.avatar}
+              className='navbar-profile_avatar-img'
+              alt='avatar'
+              src={user.avatar}
             />
           ) : (
             <img
@@ -41,9 +48,9 @@ const NavBar = () => {
             />
           )}
         </div>
-        <div>
+        <div className='navbar-profile_fullname'>
           <p>Welcome,</p>
-          <p>
+          <p className='navbar-profile_fullname-name'>
             {user.firstName} {user.lastName}
           </p>
         </div>
@@ -53,7 +60,9 @@ const NavBar = () => {
           <Link
             to='/'
             className='navbar-icons_slect_link'
-            style={ select === 'home' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            style={
+              select === 'home' ? { background: 'rgba(52, 153, 255, 1)' } : null
+            }
             onClick={() => setSelect('home')}
           >
             <FontAwesomeIcon
@@ -65,19 +74,27 @@ const NavBar = () => {
           <Link
             to='/search'
             className='navbar-icons_slect_link'
-            style={ select === 'search' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            style={
+              select === 'search'
+                ? { background: 'rgba(52, 153, 255, 1)' }
+                : null
+            }
             onClick={() => setSelect('search')}
           >
             <FontAwesomeIcon
               className='navbar-icons_slect_link-icon'
-              icon={faList}
+              icon={faMagnifyingGlass}
             />
             <p className='navbar-icons_slect_link-title'>Search</p>
           </Link>
           <Link
             to='/charts'
             className='navbar-icons_slect_link'
-            style={ select === 'charts' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            style={
+              select === 'charts'
+                ? { background: 'rgba(52, 153, 255, 1)' }
+                : null
+            }
             onClick={() => setSelect('charts')}
           >
             <FontAwesomeIcon
@@ -89,7 +106,11 @@ const NavBar = () => {
           <Link
             to='/settings'
             className='navbar-icons_slect_link'
-            style={ select === 'settings' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            style={
+              select === 'settings'
+                ? { background: 'rgba(52, 153, 255, 1)' }
+                : null
+            }
             onClick={() => setSelect('settings')}
           >
             <FontAwesomeIcon
@@ -101,7 +122,11 @@ const NavBar = () => {
           <Link
             to='/profile'
             className='navbar-icons_slect_link'
-            style={ select === 'profile' ? { background: 'rgba(52, 153, 255, 1)' } : null }
+            style={
+              select === 'profile'
+                ? { background: 'rgba(52, 153, 255, 1)' }
+                : null
+            }
             onClick={() => setSelect('profile')}
           >
             <FontAwesomeIcon
@@ -114,9 +139,7 @@ const NavBar = () => {
       </section>
       <section className='navbar-bottom'>
         <div className='navbar-bottom_logout' onClick={logout}>
-          <FontAwesomeIcon
-            icon={faRightFromBracket}
-          />
+          <FontAwesomeIcon icon={faRightFromBracket} />
           <p className='navbar-bottom_logout-title'>Session end</p>
         </div>
       </section>
