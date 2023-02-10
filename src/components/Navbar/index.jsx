@@ -61,7 +61,7 @@ const NavBar = () => {
             to='/'
             className='navbar-icons_slect_link'
             style={
-              select === 'home' ? { background: 'rgba(52, 153, 255, 1)' } : null
+              select === 'home' ? { background: 'linear-gradient(135deg, rgba(52, 153, 255, 1) 0%, rgba(58, 57, 133, 1) 100%)' } : null
             }
             onClick={() => setSelect('home')}
           >
@@ -76,7 +76,7 @@ const NavBar = () => {
             className='navbar-icons_slect_link'
             style={
               select === 'search'
-                ? { background: 'rgba(52, 153, 255, 1)' }
+                ? { background: 'linear-gradient(135deg, rgba(52, 153, 255, 1) 0%, rgba(58, 57, 133, 1) 100%' }
                 : null
             }
             onClick={() => setSelect('search')}
@@ -92,7 +92,7 @@ const NavBar = () => {
             className='navbar-icons_slect_link'
             style={
               select === 'charts'
-                ? { background: 'rgba(52, 153, 255, 1)' }
+                ? { background: 'linear-gradient(135deg, rgba(52, 153, 255, 1) 0%, rgba(58, 57, 133, 1) 100%' }
                 : null
             }
             onClick={() => setSelect('charts')}
@@ -108,7 +108,7 @@ const NavBar = () => {
             className='navbar-icons_slect_link'
             style={
               select === 'settings'
-                ? { background: 'rgba(52, 153, 255, 1)' }
+                ? { background: 'linear-gradient(135deg, rgba(52, 153, 255, 1) 0%, rgba(58, 57, 133, 1) 100%' }
                 : null
             }
             onClick={() => setSelect('settings')}
@@ -124,7 +124,7 @@ const NavBar = () => {
             className='navbar-icons_slect_link'
             style={
               select === 'profile'
-                ? { background: 'rgba(52, 153, 255, 1)' }
+                ? { background: 'linear-gradient(135deg, rgba(52, 153, 255, 1) 0%, rgba(58, 57, 133, 1) 100%' }
                 : null
             }
             onClick={() => setSelect('profile')}

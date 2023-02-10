@@ -7,10 +7,8 @@
   align-items: center;
 
   &-form {
-    width: 300px;
+    width: 350px;
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     border-radius: 5%;
     display: flex;
     flex-direction: column;
@@ -34,18 +32,23 @@
     &_email_input,
     &_password_input {
       display: block;
-      height: 45px;
+      width: 350px;
+      height: 70px;
       border: none;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 3px;
       padding: 0 10px;
-      margin-top: 5px;
-      font-size: 15px;
+      color: $white;
+      font-size: 17px;
       margin-top: 20px;
     }
 
     ::placeholder {
-      color: $white;
+      color: $grey;
+    }
+
+    :invalid:required {
+      border: 1px solid red;
     }
 
     &_button {
@@ -54,14 +57,18 @@
       &_send {
         margin: 30px 0 10px 0;
         width: 100%;
-        background: $white;
-        color: #080710;
+        background-color: $aqua;
+        color: $white;
         border: none;
         padding: 15px 0;
         font-size: 18px;
         border-radius: 5px;
         cursor: pointer;
-        box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 2px 5px 0;
+      }
+
+      &_send:hover {
+        background-color: $aqua-hover;
       }
     }
   }

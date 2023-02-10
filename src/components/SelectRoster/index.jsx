@@ -18,7 +18,8 @@ const SelectRoster = () => {
   const titleRoster = newRoster[0]?.title;
   const idRoster = newRoster[0]?._id;
   const createByRoster = newRoster[0]?.createdBy?._id;
-  const createdAtRoster = newRoster[0]?.createdAt
+  const createdAtRoster = newRoster[0]?.createdAt;
+  const rosterGuets = newRoster[0]?.guests;
 
   const handleSelect = () => {
     setSelectRoster(select.current.value);
@@ -33,6 +34,7 @@ const SelectRoster = () => {
         roster: idRoster,
         createdBy: createByRoster,
         createdAt: createdAtRoster,
+        guests: rosterGuets,
       }));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

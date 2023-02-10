@@ -23,17 +23,17 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='login'>
+    <main className='login'>
       <form className='login-form'>
-        <h2 className='login-form-title-login'>Login</h2>
         <div className='login-form_email'>
           <label className='login-form_email_label' htmlFor='email'>
-            Email address
+            Email
           </label>
           <input
             className='login-form_email_input'
             id='email'
             type='text'
+            placeholder='Email'
             value={form.email}
             onChange={handleChange}
           />
@@ -46,6 +46,7 @@ const LoginForm = () => {
             className='login-form_password_input'
             id='password'
             type='password'
+            placeholder='Password'
             value={form.password}
             onChange={handleChange}
           />
@@ -61,7 +62,7 @@ const LoginForm = () => {
           </button>
         </div>
       </form>
-    </div>
+    </main>
   );
 };
 

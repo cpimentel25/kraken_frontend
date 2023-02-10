@@ -64,14 +64,22 @@
           margin-left: 20px;
         }
 
+        &-title:hover {
+          background-color: none;
+        }
+
         &-icon {
           margin-left: 20px;
         }
-      }
-    }
 
-    .navbar-icons_slect :hover {
-      background-color: $aqua !important;
+        &-icon:hover {
+          background-color: none;
+        }
+      }
+
+      &_link:hover {
+        background: $bg-gradient-blue;
+      }
     }
   }
 
@@ -95,7 +103,7 @@
     }
 
     .navbar-bottom_logout:hover {
-      background-color: $aqua !important;
+      background: $bg-gradient-blue !important;
     }
   }
 }
