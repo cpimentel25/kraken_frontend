@@ -1,4 +1,5 @@
-const API = 'http://localhost:8080';
+const API = 'https://kraken-backend.up.railway.app';
+// const API = 'http://localhost:8080';
 
 export async function FetchRoster() {
   const token = localStorage.getItem('token');
