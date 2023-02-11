@@ -25,6 +25,7 @@ const initialState = {
   settingRoster: null,
   sendData: null,
   user: createInitialState(),
+  userActive: null,
   guest: initialStateGuest(),
   currency: 'USD',
   status: 'idle',
@@ -156,6 +157,9 @@ export const valueSlice = createSlice({
     setRosterSetting: (state, action) => {
       state.settingRoster = action.payload;
     },
+    setActiveUser: (state, action) => {
+      state.userActive = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -236,6 +240,7 @@ export const {
   setCategoryFilters,
   reset,
   setRosterSetting,
+  setActiveUser,
 } = valueSlice.actions;
 
 export default valueSlice.reducer;

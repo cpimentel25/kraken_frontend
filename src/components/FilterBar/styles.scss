@@ -12,10 +12,32 @@
   justify-content: space-around;
 
   &-roster {
-    &_title {
-      &_select {
-        color: $vanilla;
-      }
+    &_select {
+      width: 140px;
+      height: 40px;
+      font-size: 15px;
+      color: $white;
+      background-color: $bg-input;
+      border: none;
+      text-align: right;
+      padding-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  &-users {
+    &_select {
+      width: 140px;
+      height: 40px;
+      font-size: 15px;
+      color: $white;
+      background-color: $bg-input;
+      border: none;
+      text-align: right;
+      padding-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 
@@ -41,6 +63,7 @@
       text-align: right;
       padding-right: 10px;
       border-radius: 5px;
+      cursor: pointer;
     }
   }
 
@@ -94,7 +117,7 @@
 }
 
 .react-datepicker {
-  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
   font-size: 0.8rem;
   background-color: #fff;
   color: #000;

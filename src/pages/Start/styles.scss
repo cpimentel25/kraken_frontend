@@ -1,11 +1,15 @@
-@import '../../scss/colors';
+@import '../../scss/global';
 
 .settingsStart {
-  color: $black;
+  width: 1200px;
+  height: 900px;
+  background: $bg-primary;
+  color: $white;
+  border: none;
+  border-radius: 7px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
   justify-content: center;
 
   &_title {

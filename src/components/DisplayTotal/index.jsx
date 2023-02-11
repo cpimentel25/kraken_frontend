@@ -8,6 +8,7 @@ const DisplayTotal = () => {
   const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster);
   const lastValue = useSelector((state) => state.financeData?.lastValue?.value);
   const values = useSelector((state) => state.financeData?.totalValues?.total);
+  const sendData = useSelector((state) => state.financeData?.sendData);
 
   const totalValues = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -21,7 +22,7 @@ const DisplayTotal = () => {
       dispatch(fetchTotal(rosterId));
       dispatch(fetchLastValue(rosterId));
     }
-  }, [dispatch, rosterId, values])
+  }, [sendData, dispatch, rosterId, values])
 
   return (
     <main className='displaymain'>

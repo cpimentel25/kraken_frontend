@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchCategorie, fetchRoster } from './features/api/callSlice';
+import { fetchCategorie, fetchRoster, setActiveUser } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import Charts from './pages/Charts';
@@ -9,23 +9,24 @@ import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import AuthPage from './pages/Auth';
 import FormStart from './pages/Start';
+import Search from './pages/Search';
 
 import './App.scss';
-import Search from './pages/Search';
 
 function App() {
   const [tokenLive, setTokenLive] = useState(false);
   const dispatch = useDispatch();
 
   const userIsLive = useSelector((state) => state.financeData.user);
+  const activeUser = useSelector((state) => state.financeData?.userActive);
   const token = localStorage.getItem('token');
 
   const userActive = userIsLive.profile?.isActive;
 
   const dispatchData = () => {
-    // dispatch(fetchValue());
     dispatch(fetchRoster());
     if (userActive) {
+      dispatch(setActiveUser(true))
       dispatch(fetchCategorie());
     }
   };
@@ -38,19 +39,19 @@ function App() {
       setTokenLive(true);
       return dispatchData();
     },
-    // eslint-disable-next-line
-    [userIsLive]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [userIsLive, activeUser, token]
   );
 
   return (
     <div className='App'>
       <div className='App-content'>
-        {!tokenLive ? null : !userActive ? null : <NavBar />}
+        {!tokenLive ? null : !activeUser ? null : <NavBar />}
         {!tokenLive ? (
           <Routes>
             <Route path='/' element={<AuthPage />} />
           </Routes>
-        ) : !userActive ? (
+        ) : !activeUser ? (
           <Routes>
             <Route path='/' element={<FormStart />} />
           </Routes>

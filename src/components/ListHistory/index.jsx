@@ -7,6 +7,7 @@ import './style.scss';
 const ListHistory = () => {
   const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster);
   const data = useSelector((state) => state.financeData?.lastFiveRoster);
+  const sendData = useSelector((state) => state.financeData?.sendData);
 
   const dispatch = useDispatch();
 
@@ -14,7 +15,7 @@ const ListHistory = () => {
     if (rosterId?.length) {
       dispatch(fetchLastFive(rosterId));
     }
-  }, [dispatch, rosterId])
+  }, [sendData, dispatch, rosterId])
 
   return (
     <>

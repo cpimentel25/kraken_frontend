@@ -15,7 +15,7 @@ const EnterValue = () => {
 
   const source = { createdBy: userId, roster: rosterId };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -30,8 +30,8 @@ const EnterValue = () => {
   useEffect(() => {
     if (rosterId?.length) {
       dispatch(fetchValue(rosterId));
+      console.log('working!!!')
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sendData]);
 
   return (

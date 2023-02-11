@@ -12,8 +12,12 @@ const FormStart = () => {
   const activeUser = { isActive: true };
 
   const [formStart, setFormStart] = useState([
-    { name: 'Home', createdBy: id  },
-    { name: 'Job', createdBy: id  },
+    { name: 'Fixed Costs', createdBy: id  },
+    { name: 'Personal Expenses', createdBy: id  },
+    { name: 'Transport', createdBy: id  },
+    { name: 'Taxs', createdBy: id  },
+    { name: 'Shopping', createdBy: id  },
+    { name: 'Unexpected', createdBy: id  },
     { name: 'Other', createdBy: id  },
   ]);
 

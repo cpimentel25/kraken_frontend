@@ -25,7 +25,7 @@ const RegisterForm = (prop) => {
 
   const [search, { called, loading, data }] = useLazyQuery(GET_USER_HY_EMAIL, {
     onCompleted: () => {
-      console.log('complete search');
+      console.log('complete');
     },
   });
 
@@ -34,10 +34,11 @@ const RegisterForm = (prop) => {
     if (called && !loading) {
 
       if (data?.userByEmail[0]?.email === form.email) {
-        return console.log('Find user by email submit');
+        return prop.msn('Find user by email submit');
       }
       dispatch(postCreateUser(form));
       prop.show(true);
+      prop.msn('Your registration is successful, login for beginning your system.')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);

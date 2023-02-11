@@ -7,6 +7,8 @@ import './styles.scss';
 
 const AuthPage = () => {
   const [isShown, setIsShown] = useState(true);
+  const [message, setMessage] = useState('');
+
   const background = 'https://source.unsplash.com/random/600x900';
 
   // const handleClick = (event) => {
@@ -14,7 +16,7 @@ const AuthPage = () => {
   // };
 
   const testShow = (data) => {
-    setIsShown(data)
+    setIsShown(data);
   };
 
   useEffect(() => {
@@ -41,8 +43,15 @@ const AuthPage = () => {
               Register
             </p>
           </div>
+          <div className='authPage-selector-message'>
+            <p className='authPage-selector-message_state'>{message}</p>
+          </div>
           <div className='authPage-selector_component'>
-            {isShown === true ? <LoginForm /> : <RegisterForm show={testShow}/>}
+            {isShown === true ? (
+              <LoginForm />
+            ) : (
+              <RegisterForm show={testShow} msn={setMessage} />
+            )}
           </div>
           <div className='authPage-selector_bott'>
             <p className='authPage-selector_bott_text'>
