@@ -1,5 +1,5 @@
-const API = 'https://kraken-backend.up.railway.app';
-// const API = 'http://localhost:8080';
+// const API = 'https://kraken-backend.up.railway.app';
+const API = process.env.REACT_APP_BACKEND;
 
 export async function FetchRoster() {
   const token = localStorage.getItem('token');
@@ -20,7 +20,28 @@ export async function FetchRoster() {
   } catch (error) {
     console.error(error);
   }
-}
+};
+
+export async function updateRoster(update, id) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(update)
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export async function FetchData(id) {
   const token = localStorage.getItem('token');
@@ -63,48 +84,6 @@ export async function FetchTotal(id) {
     console.error(error);
   }
 }
-
-export async function FetchCategorie() {
-  const token = localStorage.getItem('token');
-
-  const payload = {
-    method: 'GET',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(),
-  };
-
-  try {
-    const response = await fetch(`${API}/api/categorie`, payload);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-export async function createCategorie(form) {
-  const token = localStorage.getItem('token');
-
-  const payload = {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(form),
-  };
-
-  try {
-    const response = await fetch(`${API}/api/categorie`, payload);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
 
 export async function createRoster(form) {
   const token = localStorage.getItem('token');

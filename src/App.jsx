@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { fetchCategorie, fetchRoster, setActiveUser } from './features/api/callSlice';
+import { fetchRoster, setActiveUser } from './features/api/callSlice';
 import NavBar from './components/Navbar';
 import Home from './pages/Home';
 import Charts from './pages/Charts';
@@ -27,7 +27,6 @@ function App() {
     dispatch(fetchRoster());
     if (userActive) {
       dispatch(setActiveUser(true))
-      dispatch(fetchCategorie());
     }
   };
 

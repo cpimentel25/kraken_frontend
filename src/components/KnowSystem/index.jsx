@@ -1,5 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { pathUpdateUser, postCategorie, postRoster, reset, setActiveUser } from '../../features/api/callSlice';
+import {
+  pathUpdateUser,
+  postRoster,
+  reset,
+  setActiveUser,
+} from '../../features/api/callSlice';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from '@cloudinary/url-gen/actions/resize';
@@ -15,16 +20,18 @@ const KnowSystem = () => {
   const navigate = useNavigate();
 
   const activeUser = { isActive: true };
-  const initialRoster = { title: 'Inistial Roster', createdBy: id }
-
-  const formStart = [
-    { name: 'Income', createdBy: id },
-    { name: 'Transport', createdBy: id },
-    { name: 'Taxes', createdBy: id },
-    { name: 'Shopping', createdBy: id },
-    { name: 'Unexpected', createdBy: id },
-    { name: 'Other', createdBy: id },
-  ];
+  const initialRoster = {
+    title: 'Inistial Roster',
+    createdBy: id,
+    categories: [
+      'Income',
+      'Transport',
+      'Taxes',
+      'Shopping',
+      'Unexpected',
+      'Other',
+    ],
+  };
 
   const cld = new Cloudinary({
     cloud: {
@@ -36,11 +43,9 @@ const KnowSystem = () => {
   imgStepOne.resize(fill().width(355).height(287));
 
   const allDispatch = () => {
-    dispatch(postCategorie(formStart));
     dispatch(pathUpdateUser(activeUser));
     dispatch(postRoster(initialRoster));
     dispatch(setActiveUser(true));
-    // dispatch(fetchRoster());
     localStorage.clear();
     dispatch(reset());
     navigate('/');

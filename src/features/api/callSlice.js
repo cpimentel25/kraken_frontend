@@ -1,10 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
-  FetchCategorie,
   FetchData,
   FetchRoster,
   FetchTotal,
-  createCategorie,
   createNewUser,
   createNewValue,
   createRoster,
@@ -30,7 +28,6 @@ const initialState = {
   currency: 'USD',
   status: 'idle',
   currentSelect: null,
-  categorie: [],
   categoryFilter: null,
 };
 
@@ -109,22 +106,6 @@ export const fetchLastFive = createAsyncThunk(
   }
 );
 
-export const fetchCategorie = createAsyncThunk(
-  'categorie/fetch',
-  async (value) => {
-    const response = await FetchCategorie(value);
-    return response;
-  }
-);
-
-export const postCategorie = createAsyncThunk(
-  'categorie/create',
-  async (value) => {
-    const response = await createCategorie(value);
-    return response;
-  }
-);
-
 export const postRoster = createAsyncThunk('roster/create', async (value) => {
   const response = await createRoster(value);
   return response;
@@ -178,9 +159,6 @@ export const valueSlice = createSlice({
       .addCase(fetchLastFive.fulfilled, (state, action) => {
         state.lastFiveRoster = action.payload;
       })
-      .addCase(fetchCategorie.fulfilled, (state, action) => {
-        state.categorie = action.payload;
-      })
       .addCase(postUser.rejected, (state) => {
         state.status = 'error';
       })
@@ -198,16 +176,6 @@ export const valueSlice = createSlice({
       //   const userActive = action.payload;
       //   state.user = userActive;
       // })
-      .addCase(postCategorie.rejected, (state) => {
-        state.status = 'error';
-      })
-      .addCase(postCategorie.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(postCategorie.fulfilled, (state, action) => {
-        state.status = 'finish';
-        state.categorie.push(action.payload);
-      })
       .addCase(postRoster.rejected, (state) => {
         state.status = 'error';
       })

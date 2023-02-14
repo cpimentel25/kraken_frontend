@@ -7,8 +7,7 @@ import './style.scss';
 const EnterValue = () => {
   const dispatch = useDispatch();
 
-  const listOptions = useSelector((state) => state.financeData?.categorie);
-
+  const listOptions = useSelector((state) => state.financeData?.currentRoster?.categories[0]);
   const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster)
   const userId = useSelector((state) => state.financeData?.user?.profile?.id);
   const sendData = useSelector((state) => state.financeData?.sendData);
@@ -33,6 +32,8 @@ const EnterValue = () => {
       console.log('working!!!')
     }
   }, [sendData]);
+
+  console.log('list options: ', listOptions);
 
   return (
     <main className='entervalue'>
@@ -61,9 +62,9 @@ const EnterValue = () => {
               {listOptions?.map((categorie) => (
                 <option
                   className='entervalue-input-categorie_options_selection'
-                  key={categorie.name}
+                  key={categorie}
                 >
-                  {categorie.name}
+                  {categorie}
                 </option>
               ))}
             </select>

@@ -20,6 +20,7 @@ const SelectRoster = () => {
   const createByRoster = newRoster[0]?.createdBy?._id;
   const createdAtRoster = newRoster[0]?.createdAt;
   const rosterGuets = newRoster[0]?.guests;
+  const rosterCategorie = newRoster[0]?.categories;
 
   const handleSelect = () => {
     setSelectRoster(select.current.value);
@@ -28,13 +29,13 @@ const SelectRoster = () => {
 
   useEffect(() => {
     if(selectRoster?.length) {
-    // if(selectRoster !== null || selectRoster !== undefined) {
       dispatch(setCurrentRoster({
         title: titleRoster,
         roster: idRoster,
         createdBy: createByRoster,
         createdAt: createdAtRoster,
         guests: rosterGuets,
+        categories: [rosterCategorie],
       }));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
