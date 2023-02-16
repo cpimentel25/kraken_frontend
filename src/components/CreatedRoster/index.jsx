@@ -38,9 +38,12 @@ const RosterSetting = () => {
           <input
             id='title'
             type='text'
+            minLength={3}
+            maxLength={30}
             className='roster-setting-create_input'
             placeholder='Enter name of new roster'
             onChange={handleChange}
+            required
           />
           <button className='roster-setting-create_button' type='submit'>
             New roster
