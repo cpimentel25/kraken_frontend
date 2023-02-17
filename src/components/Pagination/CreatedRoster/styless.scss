@@ -1,28 +1,60 @@
 @import '../../../scss/global';
 
 .rostercreated {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: $bg-input;
   border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 10px 0 10px 0;
   padding: 5px;
-  cursor: pointer;
 
-  &-title,
-  &-date,
-  &-guests {
-    width: 370px;
+  &-info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    font-size: 12px;
-    justify-content: flex-start;
+    cursor: pointer;
+
+    &-title,
+    &-date,
+    &-guests {
+      width: 317px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 12px;
+      justify-content: flex-start;
+    }
+
+    &-title_roster {
+      color: $vanilla;
+    }
   }
 
-  &-title_roster {
-    color: $vanilla;
+  &-delete {
+    &_btn {
+      background-clip: padding-box;
+      background-color: $btn-warining;
+      border: none;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      min-height: 2rem;
+      padding: calc(0.53rem + 1px) calc(1.1rem - 1px);
+      // position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    &_btn:hover {
+      background-color: $btn-warining-hover;
+    }
   }
 }
 

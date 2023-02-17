@@ -105,6 +105,27 @@ export async function createRoster(form) {
   }
 };
 
+export async function deleteRoster(id) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/${id}`, payload);
+    const data = await response.json();
+    console.log("🚀 -> Delete success roster by id", id)
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export async function createNewValue(newvalue) {
   const token = localStorage.getItem('token');
 
@@ -127,9 +148,12 @@ export async function createNewValue(newvalue) {
 };
 
 export async function deleteValue(id) {
+  const token = localStorage.getItem('token');
+
   const payload = {
     method: 'DELETE',
     headers: {
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
   };

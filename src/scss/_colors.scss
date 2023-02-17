@@ -19,6 +19,7 @@ $button: #ff6a06;
 $button-hover: #d45500;
 $btn-disable: #f7eae17e;
 $btn-warining: rgb(245, 80, 80);
+$btn-warining-hover: rgb(168, 52, 52);
 
 //gradietns
 $button-gradient-primary: linear-gradient(
@@ -55,3 +56,6 @@ $bg-gradient-blue: linear-gradient(
   rgba(52, 153, 255, 1) 0%,
   rgba(58, 57, 133, 1) 100%
 );
+
+//shadow
+$box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;

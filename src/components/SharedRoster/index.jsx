@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import PaginatedCreatedRoster from '../Pagination/CreatedRoster';
 
 import './styless.scss';
 
@@ -8,6 +9,7 @@ const SharedRoster = () => {
 
   return (
     <main className='sharedroster'>
+      <PaginatedCreatedRoster itemsPerPage={3} />
       <section className='sharedroster-guests'>
         <p>Enter a email guests:</p>
         <form className='sharedroster-guests-form'>

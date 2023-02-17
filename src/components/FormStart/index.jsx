@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { pathUpdateUser, postCategorie } from '../../features/api/callSlice';
+
+// import { pathUpdateUser, postCategorie } from '../../features/api/callSlice';
 
 import './styles.scss';
 
 const FormStart = () => {
   const user = useSelector((state) => state.financeData.user);
   const id = user?.profile?.id;
-  const activeUser = { isActive: true };
+  // const activeUser = { isActive: true };
 
   const [formStart, setFormStart] = useState([
     { name: 'Fixed Costs', createdBy: id  },
@@ -21,14 +22,14 @@ const FormStart = () => {
     { name: 'Other', createdBy: id  },
   ]);
 
-  const [goals, setGoals] = useState([
-    { name: 'free', percentage: 10  },
-    { name: 'Save', percentage: 30  },
-    { name: 'Other', percentage: 20  },
-    { name: 'Costs', percentage: 50  },
-  ]);
+  // const [goals, setGoals] = useState([
+  //   { name: 'free', percentage: 10  },
+  //   { name: 'Save', percentage: 30  },
+  //   { name: 'Other', percentage: 20  },
+  //   { name: 'Costs', percentage: 50  },
+  // ]);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleChangeField = (index, event) => {
     const data = [...formStart];
@@ -36,28 +37,28 @@ const FormStart = () => {
     setFormStart(data);
   };
 
-  const handleChangeGoal = (index, event) => {
-    const data = [...goals];
-    data[index][event.target.name] = event.target.value;
-    setGoals(data);
-  };
+  // const handleChangeGoal = (index, event) => {
+  //   const data = [...goals];
+  //   data[index][event.target.name] = event.target.value;
+  //   setGoals(data);
+  // };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('ObSubmit: ', formStart);
-    dispatch(postCategorie(formStart));
-    dispatch(pathUpdateUser(activeUser));
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log('ObSubmit: ', formStart);
+  //   dispatch(postCategorie(formStart));
+  //   dispatch(pathUpdateUser(activeUser));
+  // };
 
   const addInput = () => {
     const newInput = { name: '', createdBy: id };
     setFormStart([...formStart, newInput]);
   };
 
-  const addGoal = () => {
-    const newGoal = { name: '', percentage: 0 };
-    setGoals([...goals, newGoal]);
-  };
+  // const addGoal = () => {
+  //   const newGoal = { name: '', percentage: 0 };
+  //   setGoals([...goals, newGoal]);
+  // };
 
   const removeInput = (index) => {
     const data = [...formStart];
@@ -65,15 +66,18 @@ const FormStart = () => {
     setFormStart(data);
   };
 
-  const removeGoal = (index) => {
-    const data = [...goals];
-    data.splice(index, 1);
-    setGoals(data);
-  };
+  // const removeGoal = (index) => {
+  //   const data = [...goals];
+  //   data.splice(index, 1);
+  //   setGoals(data);
+  // };
 
   return (
     <div className='start'>
-      <form className='formstart' onSubmit={handleSubmit}>
+      <form
+        className='formstart'
+        // onSubmit={handleSubmit}
+      >
         <div className='formstart-options'>
           <h4 className='formstart-options_title'>Set Categorie:</h4>
           {formStart?.map((input, index) => {
@@ -113,7 +117,7 @@ const FormStart = () => {
             </button>
           )}
         </div>
-        <div className='formstart-goals'>
+        {/* <div className='formstart-goals'>
           <h4 className='formstart-goals_title'>Set Goals:</h4>
           {goals?.map((input, index) => {
             return (
@@ -159,16 +163,16 @@ const FormStart = () => {
               Max Goals
             </button>
           )}
-        </div>
-        <div className='formstart-button'>
+        </div> */}
+        {/* <div className='formstart-button'>
           <button
             className='formstart-button_submit'
             type='submit'
-            onClick={handleSubmit}
+            // onClick={handleSubmit}
           >
             Submit
           </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

@@ -8,14 +8,14 @@ const FilterBar = (prop) => {
   // const lastDate = useSelector(
   //   (state) => state.financeData?.lastValue?.createdAt
   // );
-  const categorie = useSelector((state) => state.financeData?.categorie);
-  const categorieName = categorie?.map((name) => name.name);
+  // const categorie = useSelector((state) => state.financeData?.categorie);
+  // const categorieName = categorie?.map((name) => name.name);
 
   const today = new Date().getTime();
 
   const [filter, setFilter] = useState({
     roster: '',
-    categorie: categorieName,
+    categorie: '',
     rangeValue: {
       min: 0,
       max: 99999999,
@@ -38,6 +38,7 @@ const FilterBar = (prop) => {
 
   const userCreatedRoster = filterRoster[0]?.createdBy;
   const allGuestsRoster = filterRoster[0]?.guests?.map((guest) => guest);
+  const categoriesRoster = filterRoster[0]?.categories;
 
   const valuesCreated = allGuestsRoster?.concat(userCreatedRoster);
   const allValuesCreated = valuesCreated?.map((all) => all._id);
@@ -69,7 +70,7 @@ const FilterBar = (prop) => {
     });
   };
 
-  // console.log('Set filter: ', filter);
+  console.log('Set filter: ', filter);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -119,17 +120,20 @@ const FilterBar = (prop) => {
           className='filterbar-categorie_select'
           onChange={handleChangeCategorie}
         >
-          <option id='categorie' value={categorieName} selected>
+          <option id='categorie' selected>
+            Select Categories
+          </option>
+          <option id='categorie' value={categoriesRoster}>
             All Categories
           </option>
-          {categorie?.map((data) => (
+          {categoriesRoster?.map((data) => (
             <option
               id='categorie'
-              key={data._id}
-              name={data.name}
-              value={data.name}
+              key={data}
+              name={data}
+              value={data}
             >
-              {data.name}
+              {data}
             </option>
           ))}
         </select>

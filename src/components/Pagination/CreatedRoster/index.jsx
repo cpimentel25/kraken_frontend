@@ -7,10 +7,12 @@ import {
   faSquareCaretLeft,
   faSquareCaretRight,
 } from '@fortawesome/free-solid-svg-icons';
+import ConfirmDeleteRoster from '../../Modals/VerificationDelete';
 
 import './styless.scss';
 
 function Items({ currentItems }) {
+  const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -18,30 +20,54 @@ function Items({ currentItems }) {
     dispatch(setRosterSetting(data));
   };
 
+  const handleAll = (data) => {
+    dispatch(setRosterSetting(data));
+    setShowModal(true);
+  }
+
   return (
-    <>
+    <main>
+      {showModal ? (
+        <section className='rosterdelete'>
+          <ConfirmDeleteRoster setShowModal={setShowModal} />
+        </section>
+      ) : null}
       {currentItems &&
         currentItems.map((data) => (
-          <div key={data?._id} className='rostercreated' onClick={() => handleClic(data)}>
-            <div className='rostercreated-title'>
-              <p className='rostercreated-title_roster'>{data?.title}</p>
+          <section className='rostercreated'>
+            <div
+              key={data?._id}
+              className='rostercreated-info'
+              onClick={() => handleClic(data)}
+            >
+              <div className='rostercreated-info-title'>
+                <p className='rostercreated-info-title_roster'>{data?.title}</p>
+              </div>
+              <div className='rostercreated-info-date'>
+                <p>
+                  Creat at:{' '}
+                  {new Date(data.createdAt)
+                    .toString()
+                    .split(' ')
+                    .splice(0, 4)
+                    .join(' ')}
+                </p>
+              </div>
+              <div className='rostercreated-info-guests'>
+                <p>Guests: {data?.guests?.length}</p>
+              </div>
             </div>
-            <div className='rostercreated-date'>
-              <p>
-                Creat at:{' '}
-                {new Date(data.createdAt)
-                  .toString()
-                  .split(' ')
-                  .splice(0, 4)
-                  .join(' ')}
-              </p>
+            <div className='rostercreated-delete'>
+              <button
+                className='rostercreated-delete_btn'
+                onClick={() => handleAll(data)}
+              >
+                Delete
+              </button>
             </div>
-            <div className='rostercreated-guests'>
-              <p>Guests: {data?.guests?.length}</p>
-            </div>
-          </div>
+          </section>
         ))}
-    </>
+    </main>
   );
 }
 
@@ -63,7 +89,7 @@ function PaginatedCreatedRoster({ itemsPerPage }) {
   };
 
   return (
-    <main className='rosterpaginated' >
+    <main className='rosterpaginated'>
       <div className='rosterpaginated_items'>
         <Items currentItems={currentItems} />
       </div>

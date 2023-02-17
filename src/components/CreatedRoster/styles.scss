@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: nowrap;
   background: $bg-secundary;
   border-radius: 7px 0 0 7px;
@@ -18,17 +18,46 @@
   color: $white;
 
   &-setting {
-    height: 50%;
+    height: 850px;
 
-    &-create {
+    &-info {
       width: 400px;
-      height: 80px;
+      height: 190px;
+      background-color: rgb(31, 31, 55);
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 40px 0 30px 0;
+
+      &_text {
+        width: 370px;
+        height: 170px;
+
+        &-one,
+        &-two,
+        &-three {
+          margin: 13px 0;
+        }
+      }
+    }
+
+    &_title {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+
+    &-create {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
 
       &_input {
-        width: 100%;
+        width: 380px;
         color: white;
         display: block;
         min-height: 3rem;
@@ -41,9 +70,9 @@
 
       &_button {
         padding: 10px;
-        min-width: 100px;
+        min-width: 150px;
         min-height: 3rem;
-        margin: 20px 0 20px 10px;
+        margin: 20px 5px 20px 10px;
         background-clip: padding-box;
         background-color: rgb(52, 153, 255);
         border: none;
@@ -58,6 +87,88 @@
         transition: all 250ms;
         touch-action: manipulation;
         vertical-align: baseline;
+      }
+
+      &_button:hover {
+        background-color: $aqua-hover;
+      }
+    }
+
+    &-categories {
+      width: 400px;
+      height: 360px;
+
+      &_title {
+        margin: 10px 0;
+      }
+
+      &_group {
+        width: 280px;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        &_input {
+          color: white;
+          display: block;
+          height: 35px;
+          border: none;
+          background-color: $bg-input;
+          border-radius: 3px;
+          padding: 0 10px;
+          font-size: 15px;
+          margin: 5px;
+        }
+
+        &_btnRemove {
+          margin: 0 5px;
+          background-clip: padding-box;
+          background-color: $aqua;
+          border: none;
+          border-radius: 0.25rem;
+          box-sizing: border-box;
+          // box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+          color: white;
+          cursor: pointer;
+          font-size: 14px;
+          min-height: 2rem;
+          padding: calc(0.53rem - -1px) calc(1.1rem - 1px);
+          position: relative;
+          text-decoration: none;
+          transition: all 250ms;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          width: 100%;
+        }
+
+        &_btnRemove:hover {
+          background-color: $aqua-hover;
+        }
+      }
+
+      &_btnAdd {
+        width: 100px;
+        min-height: 2rem;
+        margin: 10px 5px;
+        background-clip: padding-box;
+        background-color: rgb(52, 153, 255);
+        border: none;
+        border-radius: 0.25rem;
+        box-sizing: border-box;
+        // box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        position: relative;
+        text-decoration: none;
+        transition: all 250ms;
+        touch-action: manipulation;
+        vertical-align: baseline;
+      }
+
+      &_btnAdd:hover {
+        background-color: $aqua-hover;
       }
     }
   }
