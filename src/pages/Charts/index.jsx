@@ -3,6 +3,7 @@
 // import ChartRadar from '../../components/Chart/Radar';
 // import ChartBar from '../../components/Chart/Bar';
 
+import ChartMain from '../../components/Chart/ChartMain';
 import './styles.scss';
 
 const Charts = () => {
@@ -30,6 +31,7 @@ const Charts = () => {
 
   return (
     <div className='charts'>
+      <ChartMain />
       {/* <div className='charts-recharts'>
         {showChartBar ? <ChartBar /> : null}
         {showChartRadar ? <ChartRadar /> : null}

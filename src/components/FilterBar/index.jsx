@@ -1,26 +1,26 @@
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 import './styles.scss';
 
 const FilterBar = (prop) => {
   const roster = useSelector((state) => state.financeData?.roster);
-  // const lastDate = useSelector(
-  //   (state) => state.financeData?.lastValue?.createdAt
-  // );
-  // const categorie = useSelector((state) => state.financeData?.categorie);
-  // const categorieName = categorie?.map((name) => name.name);
+
+  const initialCreate = roster[0]?.guests?.map((guest) => guest);
+  const allCreatedValues = initialCreate?.concat(roster[0]?.createdBy);
+  const resultCreate = allCreatedValues?.map((data) => data._id)
 
   const today = new Date().getTime();
 
   const [filter, setFilter] = useState({
-    roster: '',
-    categorie: '',
+    roster: roster[0]?._id,
+    categorie: roster[0]?.categories,
     rangeValue: {
       min: 0,
       max: 99999999,
     },
-    createdBy: '',
+    createdBy: resultCreate,
     createdAt: today,
   });
 
@@ -70,7 +70,10 @@ const FilterBar = (prop) => {
     });
   };
 
-  console.log('Set filter: ', filter);
+  useEffect(() => {
+    prop.sendFilter(filter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault();

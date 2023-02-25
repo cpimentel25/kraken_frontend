@@ -1,0 +1,12 @@
+@import '../../../scss/global';
+
+.chartmain {
+  width: 940px;
+  height: 500px;
+  background-color: $bg-secundary;
+  border: none;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

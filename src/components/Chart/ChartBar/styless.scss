@@ -1,0 +1,33 @@
+@import '../../../scss/global';
+
+.chartBar {
+  height: 50px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+
+  &-section {
+    height: 50px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+
+    &-select {
+      width: 300px;
+      height: 40px;
+      font-size: 15px;
+      color: $white;
+      background-color: $bg-input;
+      border: none;
+      text-align: right;
+      padding-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

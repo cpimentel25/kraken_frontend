@@ -1,8 +1,8 @@
 import { gql, useLazyQuery } from '@apollo/client';
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 import './styles.scss';
-import { useState } from 'react';
 
 const GET_ALL_VALUES = gql`
   query AllValues(
@@ -42,8 +42,6 @@ const FilterResult = ({ filter }) => {
     limit: 10,
     offset: 0
   });
-
-  // console.log('GraphQl: ', filter);
 
   const [search, { called, loading, data }] = useLazyQuery(GET_ALL_VALUES, {
     onCompleted: () => {
