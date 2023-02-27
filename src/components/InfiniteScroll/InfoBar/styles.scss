@@ -1,0 +1,41 @@
+@import '../../../scss/global';
+
+.infobar {
+  font-size: 14px;
+
+  &-section {
+    &-data {
+      width: 870px;
+      height: 50px;
+      background-color: $blue-dark;
+      border: none;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 7px 0;
+      padding: 0 15px;
+
+      &-value {
+        width: 110px;
+      }
+
+      &-categorie {
+        width: 120px;
+      }
+
+      &-description {
+        width: 200px;
+      }
+
+      &-createdAt {
+        width: 100px;
+      }
+
+      &-createdBy {
+        width: 210px;
+      }
+    }
+  }
+}

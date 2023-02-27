@@ -31,9 +31,10 @@ const EnterValue = () => {
       dispatch(fetchValue(rosterId));
       console.log('working!!!')
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sendData]);
 
-  console.log('list options: ', listOptions);
+  // console.log('list options: ', listOptions);
 
   return (
     <main className='entervalue'>

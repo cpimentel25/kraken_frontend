@@ -58,14 +58,6 @@ const ChartLiner = ({ dataChart }) => {
 
   if (called && loading) return <p>Loading ...</p>;
 
-  // const users = data?.allUsers;
-
-  // function filterUser(idUser) {
-  //   const filter = users?.filter((user) => user._id === idUser);
-  //   const result = filter[0]?.firstName + ' ' + filter[0]?.lastName;
-  //   return result;
-  // }
-
   const dataResult = data?.allValuesForCharts;
 
   const chartData = dataResult?.map((result) => ({
@@ -75,7 +67,7 @@ const ChartLiner = ({ dataChart }) => {
     }`,
   }));
 
-  console.log('search data: ', chartData);
+  // console.log('search data: ', chartData);
 
   return (
     <div className='chart'>
