@@ -1,93 +1,69 @@
 import { gql, useQuery } from '@apollo/client';
-import InfoBar from '../InfiniteScroll/InfoBar';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../InfiniteScroll/Loading';
+import InfoBar from '../InfiniteScroll/InfoBar';
 
 import './styless.scss';
 
 const GET_ALL_VALUES = gql`
-  query AllValues(
-    $roster: String!
-    $pagination: Pagination
-    $categorie: [String]
-    $createdAt: Date
-    $createdBy: [String]
-    $rangeValue: RangeValue
-  ) {
-    allValues(
-      roster: $roster
-      pagination: $pagination
-      categorie: $categorie
-      createdBy: $createdBy
-      createdAt: $createdAt
-      rangeValue: $rangeValue
-    ) {
+  query Values($limit: Int, $offset: Int, $roster: String!) {
+    values(limit: $limit, offset: $offset, roster: $roster) {
       value
       categorie
       description
-      createdBy
       createdAt
+      createdBy
     }
   }
 `;
 
 const PrintedData = ({ roster }) => {
-  const [limit, setLimit] = useState(7);
-
-  const { loading, error, data, fetchMore } = useQuery(GET_ALL_VALUES, {
+  const { loading, error, data, fetchMore, client } = useQuery(GET_ALL_VALUES, {
     variables: {
-      pagination: {
-        limit: limit,
-        offset: 0,
-      },
+      offset: 0,
+      limit: 6,
       roster: roster?.roster,
-      categorie: roster?.categorie,
-      rangeValue: roster?.rangeValue,
-      createdBy: roster?.createdBy,
-      createdAt: roster?.createdAt,
     },
     onCompleted: () => {
-      // console.log('complete search users');
+      console.log('complete query');
     },
   });
 
   useEffect(() => {
-    setLimit(7);
-  }, [roster]);
+    client.resetStore();
+  }, [client, roster]);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  const allData = data?.allValues;
-  // const size = data?.allValues?.length;
+  const size = data?.values?.length;
   // console.log('size: ', size);
 
   const fetchMoreData = () => {
-    // if (size <= dataBar?.length) {
-    //   setHasMore(false);
-    // return;
-    // }
-
-    setTimeout(() => {
-      setLimit(limit + 7);
-      console.log('limit: ', limit);
+    const totalSize = data?.values?.length || 0;
+    setTimeout(async () => {
+      await fetchMore({
+        variables: {
+          offset: totalSize,
+          limit: totalSize * 2,
+          roster: roster?.roster,
+        },
+      });
+      console.log('fetch more data');
     }, 500);
   };
 
   return (
     <main className='printeddata'>
       <InfiniteScroll
-        dataLength={allData?.length}
+        dataLength={size}
         next={fetchMoreData}
         hasMore={true}
         loader={<Loading />}
         height={300}
       >
-        {allData?.map((data) => (
-          <InfoBar dataBar={data} />
-        ))}
+        {data && data?.values?.map((data) => <InfoBar dataBar={data} />)}
       </InfiniteScroll>
     </main>
   );

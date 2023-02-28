@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { offsetLimitPagination } from '@apollo/client/utilities';
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,7 +16,15 @@ const URI = process.env.REACT_APP_BACKEND;
 
 const client = new ApolloClient({
   uri: `${URI}/graphql`,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          values: offsetLimitPagination(),
+        }
+      }
+    }
+  }),
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
