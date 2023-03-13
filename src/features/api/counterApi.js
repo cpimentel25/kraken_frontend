@@ -43,6 +43,27 @@ export async function updateRoster(update, id) {
   }
 };
 
+export async function updateRosterByGuest(update, id) {
+  const token = localStorage.getItem('token');
+
+  const payload = {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(update)
+  };
+
+  try {
+    const response = await fetch(`${API}/api/roster/guests/${id}`, payload);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export async function FetchData(id) {
   const token = localStorage.getItem('token');
 

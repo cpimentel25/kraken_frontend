@@ -61,8 +61,6 @@ const RosterSetting = () => {
     await dispatch(fetchRoster());
   };
 
-  // console.log('new roster: ', newRoster);
-
   return (
     <main className='roster'>
       <section className='roster-setting'>

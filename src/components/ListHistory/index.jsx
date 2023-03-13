@@ -6,7 +6,7 @@ import './style.scss';
 
 const ListHistory = () => {
   const rosterId = useSelector((state) => state.financeData?.currentRoster?.roster);
-  const data = useSelector((state) => state.financeData?.lastFiveRoster);
+  const data = useSelector((state) => state.financeData?.lastFiveRoster); // -> add scroll infinite
   const sendData = useSelector((state) => state.financeData?.sendData);
 
   const dispatch = useDispatch();

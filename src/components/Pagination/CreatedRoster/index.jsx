@@ -23,7 +23,7 @@ function Items({ currentItems }) {
   const handleAll = (data) => {
     dispatch(setRosterSetting(data));
     setShowModal(true);
-  }
+  };
 
   return (
     <main>
