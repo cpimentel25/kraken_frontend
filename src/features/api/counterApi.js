@@ -1,4 +1,3 @@
-// const API = 'https://kraken-backend.up.railway.app';
 const API = process.env.REACT_APP_BACKEND;
 
 export async function FetchRoster() {
