@@ -26,6 +26,7 @@ const SelectRoster = () => {
     setSelectRoster(select.current.value);
   };
   // console.log('title:', titleRoster, 'roster:', idRoster, 'create by:', createByRoster);
+  console.log('roster select:', newRoster);
 
   useEffect(() => {
     if(selectRoster?.length) {

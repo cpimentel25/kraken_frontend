@@ -24,6 +24,10 @@ const DisplayTotal = () => {
     }
   }, [sendData, dispatch, rosterId, values])
 
+  // console.log('debug rosterId: ', rosterId);
+  // console.log('debug lastValue: ', lastValue);
+  // console.log('debug values: ', values);
+
   return (
     <main className='displaymain'>
       <section
