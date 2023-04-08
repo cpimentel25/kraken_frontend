@@ -2,7 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { fetchRoster, postRoster } from '../../features/api/callSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronDown,
+  faChevronUp,
+  faPlus,
+  faTrashCan,
+} from '@fortawesome/free-solid-svg-icons';
 
 import './styles.scss';
 
@@ -10,18 +15,39 @@ const RosterSetting = () => {
   const user = useSelector((state) => state.financeData?.user);
   const id = user?.profile?.id;
 
+  const [showSub, setShowSub] = useState(false);
+
+  const show = (index) => {
+    if (showSub !== index) {
+      return setShowSub(index);
+    }
+    return setShowSub(false);
+  };
+
   // const roster = useSelector((state) => state.financeData?.settingRoster);
 
   const [newRoster, setNewRoster] = useState({
     title: '',
     createdBy: id,
     categories: [
-      'Income',
-      'Transport',
-      'Taxes',
-      'Shopping',
-      'Unexpected',
-      'Other',
+      { category: 'Income', subcategory: ['Work', 'Other', 'Freelance'] },
+      {
+        category: 'Home',
+        subcategory: [
+          'Shopping',
+          'Market',
+          'Healt',
+          'Unexpected',
+          'Rent',
+          'Services',
+        ],
+      },
+      { category: 'Taxes', subcategory: ['State', 'Annual'] },
+      {
+        category: 'Business',
+        subcategory: ['Income', 'investment', 'Bills', 'Unexpected'],
+      },
+      { category: 'Other', subcategory: ['Income', 'Bills'] },
     ],
   });
 
@@ -32,9 +58,15 @@ const RosterSetting = () => {
     setNewRoster({ ...newRoster, [id]: value });
   };
 
-  const handleCategorie = (index, event) => {
+  const handleCategory = (index, event) => {
     const data = [...newRoster.categories];
-    data[index] = event.target.value;
+    data[index].category = event.target.value;
+    setNewRoster({ ...newRoster, categories: data });
+  };
+
+  const handleSubCategory = (index, event, showSub) => {
+    const data = [...newRoster.categories];
+    data[showSub].subcategory[index] = event.target.value;
     setNewRoster({ ...newRoster, categories: data });
   };
 
@@ -45,8 +77,18 @@ const RosterSetting = () => {
   };
 
   const addInput = () => {
-    const data = { ...newRoster };
-    data.categories.push('');
+    if (newRoster?.categories?.length < 7) {
+      const data = { ...newRoster };
+      data.categories.push({ category: '', subcategory: [''] });
+      return setNewRoster(data);
+    }
+    return null;
+  };
+
+  const addSubCategory = (index, event, showSub) => {
+    const data = [...newRoster.categories];
+    // console.log('data add input by subcat: ', data[showSub].subcategory);
+    data[showSub].subcategory.push('');
     setNewRoster(data);
   };
 
@@ -56,29 +98,37 @@ const RosterSetting = () => {
     setNewRoster(data);
   };
 
-  const sendData = async() => {
+  const removeSubCategory = (index) => {
+    const data = { ...newRoster };
+    data.categories.subcategory.splice(index, 1);
+    setNewRoster(data);
+  };
+
+  const sendData = async () => {
     await dispatch(postRoster(newRoster));
     await dispatch(fetchRoster());
   };
 
+  console.log('new roster: ', newRoster);
+
   return (
     <main className='roster'>
       <section className='roster-setting'>
-        <div className='roster-setting-info'>
+        {/* <div className='roster-setting-info'>
           <div className='roster-setting-info_text'>
             <p className='roster-setting-info_text-one'>
               If you are looking to create a roster, you can do it in two ways:
             </p>
             <p className='roster-setting-info_text-two'>
-              1. Just inserting the name of the roster you want and then click on
-              "New Roster"
+              1. Just inserting the name of the roster you want and then click
+              on "New Roster"
             </p>
             <p className='roster-setting-info_text-three'>
               2. Insert the name you want and customize the roster categories, a
               minimum of 1 and a maximum of 7, then click on "New Roster"
             </p>
           </div>
-        </div>
+        </div> */}
         <p className='roster-setting_title'>Created a new Roster:</p>
         <form className='roster-setting-create' onSubmit={handleSubmit}>
           <input
@@ -96,27 +146,94 @@ const RosterSetting = () => {
             {newRoster?.categories?.map((input, index) => {
               return (
                 <div className='roster-setting-categories_group' key={index}>
-                  <input
-                    className='roster-setting-categories_group_input'
-                    id='categories'
-                    type='text'
-                    required
-                    value={input}
-                    onChange={(event) => handleCategorie(index, event)}
-                  />
-                  {index ? (
+                  <div className='roster-setting-categories_group-withbutton'>
+                    {index === 0 && (
+                      <button
+                        className='roster-setting-categories_group_btnAdd'
+                        type='button'
+                        onClick={addInput}
+                      >
+                        <FontAwesomeIcon icon={faPlus} />
+                      </button>
+                    )}
+                    {index ? (
+                      <button
+                        className='roster-setting-categories_group_btnRemove'
+                        type='button'
+                        onClick={() => removeInput(index)}
+                      >
+                        <FontAwesomeIcon icon={faTrashCan} />
+                      </button>
+                    ) : null}
+                    <input
+                      className='roster-setting-categories_group_input'
+                      id={input.category}
+                      type='text'
+                      required
+                      value={input.category}
+                      name={input.category}
+                      onChange={(event) => handleCategory(index, event)}
+                    />
                     <button
-                      className='roster-setting-categories_group_btnRemove'
+                      className='roster-setting-categories_group_btnShow'
                       type='button'
-                      onClick={() => removeInput(index)}
+                      onClick={() => show(index)}
                     >
-                      <FontAwesomeIcon icon={faTrashCan} />
+                      {showSub === index ? (
+                        <FontAwesomeIcon icon={faChevronUp} />
+                      ) : (
+                        <FontAwesomeIcon icon={faChevronDown} />
+                      )}
                     </button>
+                  </div>
+                  {showSub === index ? (
+                    <div className='roster-setting-categories_group-subcategories'>
+                      {input?.subcategory?.map((data, index) => {
+                        return (
+                          <div
+                            className='roster-setting-categories_group-subcategories_subgroup'
+                            key={index}
+                          >
+                            <input
+                              className='roster-setting-categories_group-subcategories_subgroup_input'
+                              id={data}
+                              type='text'
+                              required
+                              value={data}
+                              name={data}
+                              onChange={() => handleSubCategory(showSub)}
+                            />
+                          </div>
+                        );
+                      })}
+                      <button
+                        className='roster-setting-categories_group_btnAdd'
+                        type='button'
+                        onClick={(event) =>
+                          addSubCategory(index, event, showSub)
+                        }
+                      >
+                        <FontAwesomeIcon icon={faPlus} />
+                      </button>
+                    </div>
                   ) : null}
                 </div>
               );
             })}
-            {newRoster?.categories?.length < 7 ? (
+            {/* {newRoster?.categories?.map((data, index) => {
+              return (
+                <div key={index}>
+                  <input
+                    id='subcategory'
+                    type='text'
+                    required
+                    value={data.subcategory}
+                    name={data.subcategory}
+                  />
+                </div>
+              );
+            })} */}
+            {/* {newRoster?.categories?.length < 7 ? (
               <button
                 className='roster-setting-categories_btnAdd'
                 type='button'
@@ -124,7 +241,7 @@ const RosterSetting = () => {
               >
                 Add Field
               </button>
-            ) : null}
+            ) : null} */}
           </div>
           <button className='roster-setting-create_button' type='submit'>
             New roster

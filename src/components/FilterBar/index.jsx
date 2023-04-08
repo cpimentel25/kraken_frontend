@@ -17,8 +17,8 @@ const FilterBar = (prop) => {
     roster: roster[0]?._id,
     categorie: roster[0]?.categories,
     rangeValue: {
-      min: 0,
-      max: 99999999,
+      min: -999999999,
+      max: 999999999,
     },
     createdBy: resultCreate,
     createdAt: today,

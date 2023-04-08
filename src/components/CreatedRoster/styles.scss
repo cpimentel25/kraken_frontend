@@ -1,6 +1,5 @@
 @import '../../scss/global';
 
-
 .roster {
   width: 470px;
   min-height: 850px;
@@ -96,18 +95,21 @@
 
     &-categories {
       width: 400px;
-      height: 360px;
+      // height: 360px;
 
       &_title {
         margin: 10px 0;
       }
 
       &_group {
-        width: 280px;
         display: flex;
-        align-items: center;
-        flex-direction: row;
         flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &-withbutton {
+          display: flex;
+        }
 
         &_input {
           color: white;
@@ -121,14 +123,13 @@
           margin: 5px;
         }
 
-        &_btnRemove {
+        &_btnAdd {
           margin: 0 5px;
           background-clip: padding-box;
           background-color: $aqua;
           border: none;
           border-radius: 0.25rem;
           box-sizing: border-box;
-          // box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
           color: white;
           cursor: pointer;
           font-size: 14px;
@@ -140,10 +141,81 @@
           touch-action: manipulation;
           vertical-align: baseline;
           width: 100%;
+          margin: 5px;
+        }
+
+        &_btnRemove {
+          margin: 0 5px;
+          background-clip: padding-box;
+          background-color: $btn-warining;
+          border: none;
+          border-radius: 0.25rem;
+          box-sizing: border-box;
+          color: white;
+          cursor: pointer;
+          font-size: 14px;
+          min-height: 2rem;
+          padding: calc(0.53rem - -1px) calc(1.1rem - 1px);
+          position: relative;
+          text-decoration: none;
+          transition: all 250ms;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          width: 100%;
+          margin: 5px;
         }
 
         &_btnRemove:hover {
+          background-color: $btn-warining-hover;
+        }
+
+        &_btnShow {
+          margin: 0 5px;
+          background-clip: padding-box;
+          background-color: $aqua;
+          border: none;
+          border-radius: 0.25rem;
+          box-sizing: border-box;
+          color: white;
+          cursor: pointer;
+          font-size: 14px;
+          min-height: 2rem;
+          padding: calc(0.53rem - -1px) calc(1.1rem - 1px);
+          position: relative;
+          text-decoration: none;
+          transition: all 250ms;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          width: 100%;
+          margin: 5px;
+        }
+
+        &_btnShow:hover {
           background-color: $aqua-hover;
+        }
+
+        &-subcategories {
+          display: flex;
+          flex-direction: column;
+
+          &_subgroup {
+            width: 180px;
+            display: flex;
+            justify-content: flex-end;
+
+            &_input {
+              width: 100%;
+              color: white;
+              display: block;
+              height: 35px;
+              border: none;
+              background-color: $bg-input;
+              border-radius: 3px;
+              padding: 0 10px;
+              font-size: 15px;
+              margin: 5px;
+            }
+          }
         }
       }
 
