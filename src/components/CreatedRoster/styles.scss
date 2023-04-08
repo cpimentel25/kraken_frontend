@@ -124,6 +124,7 @@
         }
 
         &_btnAdd {
+          width: 45px;
           margin: 0 5px;
           background-clip: padding-box;
           background-color: $aqua;
@@ -140,11 +141,11 @@
           transition: all 250ms;
           touch-action: manipulation;
           vertical-align: baseline;
-          width: 100%;
           margin: 5px;
         }
 
         &_btnRemove {
+          width: 45px;
           margin: 0 5px;
           background-clip: padding-box;
           background-color: $btn-warining;
@@ -161,7 +162,6 @@
           transition: all 250ms;
           touch-action: manipulation;
           vertical-align: baseline;
-          width: 100%;
           margin: 5px;
         }
 
@@ -199,7 +199,7 @@
           flex-direction: column;
 
           &_subgroup {
-            width: 180px;
+            // width: 180px;
             display: flex;
             justify-content: flex-end;
 

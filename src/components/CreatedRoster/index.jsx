@@ -86,10 +86,13 @@ const RosterSetting = () => {
   };
 
   const addSubCategory = (index, event, showSub) => {
-    const data = [...newRoster.categories];
-    // console.log('data add input by subcat: ', data[showSub].subcategory);
-    data[showSub].subcategory.push('');
-    setNewRoster(data);
+    if (newRoster?.categories[showSub]?.subcategory?.length < 7) {
+      const data = { ...newRoster };
+      data.categories[showSub].subcategory.push('');
+      return setNewRoster(data);
+    }
+    console.log('max subCategory');
+    return null;
   };
 
   const removeInput = (index) => {
@@ -98,9 +101,9 @@ const RosterSetting = () => {
     setNewRoster(data);
   };
 
-  const removeSubCategory = (index) => {
+  const removeSubCategory = (index, showSub) => {
     const data = { ...newRoster };
-    data.categories.subcategory.splice(index, 1);
+    data.categories[showSub].subcategory.splice(index, 1);
     setNewRoster(data);
   };
 
@@ -194,6 +197,17 @@ const RosterSetting = () => {
                             className='roster-setting-categories_group-subcategories_subgroup'
                             key={index}
                           >
+                            {index ? (
+                              <button
+                                className='roster-setting-categories_group_btnRemove'
+                                type='button'
+                                onClick={() =>
+                                  removeSubCategory(index, showSub)
+                                }
+                              >
+                                <FontAwesomeIcon icon={faTrashCan} />
+                              </button>
+                            ) : null}
                             <input
                               className='roster-setting-categories_group-subcategories_subgroup_input'
                               id={data}
@@ -203,18 +217,20 @@ const RosterSetting = () => {
                               name={data}
                               onChange={() => handleSubCategory(showSub)}
                             />
+                            {index === 0 ? (
+                            <button
+                              className='roster-setting-categories_group_btnAdd'
+                              type='button'
+                              onClick={(event) =>
+                                addSubCategory(index, event, showSub)
+                              }
+                            >
+                              <FontAwesomeIcon icon={faPlus} />
+                            </button>
+                            ) : null}
                           </div>
                         );
                       })}
-                      <button
-                        className='roster-setting-categories_group_btnAdd'
-                        type='button'
-                        onClick={(event) =>
-                          addSubCategory(index, event, showSub)
-                        }
-                      >
-                        <FontAwesomeIcon icon={faPlus} />
-                      </button>
                     </div>
                   ) : null}
                 </div>
