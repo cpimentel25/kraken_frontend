@@ -16,8 +16,10 @@ const RosterSetting = () => {
   const id = user?.profile?.id;
 
   const [showSub, setShowSub] = useState(false);
+  console.log('🚀 ~ file: index.jsx:19 ~ RosterSetting ~ showSub:', showSub);
 
   const show = (index) => {
+    console.log('🚀 ~ file: index.jsx:22 ~ show ~ index:', index);
     if (showSub !== index) {
       return setShowSub(index);
     }
@@ -148,7 +150,21 @@ const RosterSetting = () => {
             <p className='roster-setting-categories_title'>Set Categories:</p>
             {newRoster?.categories?.map((input, index) => {
               return (
-                <div className='roster-setting-categories_group' key={index}>
+                <div
+                  className='roster-setting-categories_group'
+                  key={index}
+                  style={
+                    showSub === false
+                      ? null
+                      : showSub === index
+                      ? {
+                          backgroundColor: 'rgb(31, 31, 31)',
+                          borderRadius: '5px',
+                          borderColor: 'red',
+                        }
+                      : { filter: 'blur(4px)' }
+                  }
+                >
                   <div className='roster-setting-categories_group-withbutton'>
                     {index === 0 && (
                       <button
@@ -215,18 +231,20 @@ const RosterSetting = () => {
                               required
                               value={data}
                               name={data}
-                              onChange={() => handleSubCategory(showSub)}
+                              onChange={(event) =>
+                                handleSubCategory(index, event, showSub)
+                              }
                             />
                             {index === 0 ? (
-                            <button
-                              className='roster-setting-categories_group_btnAdd'
-                              type='button'
-                              onClick={(event) =>
-                                addSubCategory(index, event, showSub)
-                              }
-                            >
-                              <FontAwesomeIcon icon={faPlus} />
-                            </button>
+                              <button
+                                className='roster-setting-categories_group_btnAdd'
+                                type='button'
+                                onClick={(event) =>
+                                  addSubCategory(index, event, showSub)
+                                }
+                              >
+                                <FontAwesomeIcon icon={faPlus} />
+                              </button>
                             ) : null}
                           </div>
                         );
