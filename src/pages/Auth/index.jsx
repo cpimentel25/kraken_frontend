@@ -9,7 +9,7 @@ const AuthPage = () => {
   const [isShown, setIsShown] = useState(true);
   const [message, setMessage] = useState('');
 
-  const background = 'https://source.unsplash.com/random/600x900';
+  const background = 'https://source.unsplash.com/random/600x900/?tech';
 
   // const handleClick = (event) => {
   //   setIsShown((current) => !current);
